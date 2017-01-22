@@ -1,4 +1,5 @@
 @extends('main')
+@section('title', '| Contact us')
 
 @section('content')
 

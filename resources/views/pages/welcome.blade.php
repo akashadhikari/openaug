@@ -1,4 +1,5 @@
 @extends('main')
+@section('title', '| Welcome')
 
 @section('content')
 
@@ -9,11 +10,11 @@
             <div class="col-md-8">
 
                 <div class="list-group">
-                <a href="#" class="list-group-item active">
+                <a class="list-group-item active">
                 Trend listing according to comments and ratings.
                 </a>
                 </div>
-                
+
                 <div class="post">
                     <h2>Popular Places</h2>
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -57,8 +58,8 @@
                          
                     
                          <div class="list-group">
-                          <a href="#" class="list-group-item active">
-                            All listing
+                          <a href="/" class="list-group-item active">
+                            Popular listing
                           </a>
                           <a href="#" class="list-group-item">Agriculture </a>
                           <a href="#" class="list-group-item">Art and Craft</a>

@@ -1,5 +1,5 @@
 @extends('main')
-
+@section('title', '| About us')
 @section('content')
 
 
