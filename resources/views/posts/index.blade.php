@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="col-md-2">
-			<a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">New Augment</a>
+			<a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-success btn-h1-spacing">New Augment</a>
 		</div>
 
 		<div class="col-md-12">
@@ -38,8 +38,8 @@
   								<td>{{ $post->title}}</td>
   								<td>{{ substr($post->body, 0, 140)}}</td>
   								<td>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</td>
-  								<td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-success">View</a></td>
-  								<td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning">Edit</a></td>
+  								<td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">View</a></td>
+  								<td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Edit</a></td>
   							</tr>
 
   						@endforeach
