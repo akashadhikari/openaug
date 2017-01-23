@@ -15,7 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        //create a variable and store all posts in the db
+        $posts= Post::all();
+
+        //return a view and pass in the above variable
+        return view('posts.index')->withPosts($posts);
     }
 
     /**
@@ -76,7 +80,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //find the post in the database and save it as a variable
+        $post = Post::find($id);
+        //return the view variable previously created
+        return view('posts.edit')->withPost($post);
     }
 
     /**
