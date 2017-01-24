@@ -7,6 +7,13 @@ use App\Post;
 
 class AugmentsController extends Controller
 {
+    public function getIndex() {
+		
+		$posts= Post::paginate(10);
+		return view('augments.index')->withPosts($posts);
+
+	}
+
     public function getSingle($slug) {
 		
 		//fetch form the database based on slug
@@ -16,4 +23,5 @@ class AugmentsController extends Controller
 		return view('augments.single')->withPost($post);
 
 	}
+
 }
