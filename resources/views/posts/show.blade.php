@@ -5,14 +5,8 @@
 @section('content')
 
 	<div class="row">
-	     <div class="col-md-8">
 
-	    	 <h1> {{ $post->title }} </h1>
-			 <p class="lead">{{ $post->body }}</p>
-		
-	     </div> 
-
-	    <div class="col-md-4">
+		<div class="col-md-4">
 			<div class="well">
 
 				<dl class="dl-horizontal">
@@ -52,6 +46,15 @@
 
 		    </div>
 	    </div>
+		
+	     <div class="col-md-8">
+
+	    	 <h1> {{ $post->title }} </h1>
+			 <p class="lead">{{ $post->body }}</p>
+		
+	     </div> 
+
+	    
 	</div>
 
 	
