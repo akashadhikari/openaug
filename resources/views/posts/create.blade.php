@@ -24,7 +24,7 @@
  				{{ Form::label('body','Business Description: (140 characters max)') }}
  				{{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '140')) }}
 
- 				{{ Form::submit('Create Post', array('class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-top:20px;')) }}
+ 				{{ Form::submit('Create Your Augmented Business', array('class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-top:20px;')) }}
 
             {!! Form::close() !!}
  			

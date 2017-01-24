@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         //create a variable and store all posts in the db
-        $posts= Post::all();
+        $posts= Post::orderBy('id', 'desc')->paginate(10);
 
         //return a view and pass in the above variable
         return view('posts.index')->withPosts($posts);
@@ -82,6 +82,7 @@ class PostController extends Controller
     {
         //find the post in the database and save it as a variable
         $post = Post::find($id);
+
         //return the view variable previously created
         return view('posts.edit')->withPost($post);
     }
@@ -95,7 +96,26 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validate the data
+        $this->validate($request, array(
+            'title' => 'required|max:100',
+            'body'  => 'required|max:140'
+            ));
+
+        //Save the data to the database
+        $post= Post::find($id);
+
+        $post->title = $request->input('title');
+        $post->body  = $request->input('body');
+
+        $post->save();
+
+        //Set a success message
+        Session::flash('success', 'Regmented successfully.');
+
+        //Redirect with flash data to posts.show
+        return redirect()->route('posts.show', $post->id);
+
     }
 
     /**
@@ -106,6 +126,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post= Post::find($id);
+
+        $post->delete();
+
+        Session::flash('success', 'Business was successfully deleted.');
+
+        return redirect()->route('posts.index');
     }
 }
