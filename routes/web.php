@@ -20,8 +20,9 @@ Route::get('/', function () {
 */
 Route::group(['middleware' => ['web']], function () {
 	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
-	Route::get('/contact', 'PagesController@getContact');
-	Route::get('/about', 'PagesController@getAbout');
+	Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.single']);
+	Route::get('contact', 'PagesController@getContact');
+	Route::get('about', 'PagesController@getAbout');
 	Route::get('/', 'PagesController@getIndex');
 	Route::resource('posts', 'PostController');
 
