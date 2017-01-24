@@ -11,7 +11,7 @@
 
 				<dl class="dl-horizontal">
 					<label>URL</label>
-					<p><a href="{{ url($post->slug) }}">{{url($post->slug)}}</a></p>
+					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
 				</dl>
 
 				<dl class="dl-horizontal">
