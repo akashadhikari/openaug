@@ -5,24 +5,23 @@
 @section('content')
 
 	<div class="row">
-	     <div class="col-md-8">
 
-	    	 <h1> {{ $post->title }} </h1>
-			 <p class="lead">{{ $post->body }}</p>
-		
-	     </div> 
-
-	    <div class="col-md-4">
+		<div class="col-md-4">
 			<div class="well">
 
 				<dl class="dl-horizontal">
-					<dt>Augmentified at:</dt>
-					<dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+					<label>URL</label>
+					<p><a href="{{ url($post->slug) }}">{{url($post->slug)}}</a></p>
 				</dl>
 
 				<dl class="dl-horizontal">
-					<dt>Regmented at:</dt>
-					<dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
+					<label>Augmentified at:</label>
+					<p>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</p>
+				</dl>
+
+				<dl class="dl-horizontal">
+					<label>Regmented at:</label>
+					<p>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</p>
 				</dl>
 				<hr>
 				<div class="row">
@@ -47,6 +46,15 @@
 
 		    </div>
 	    </div>
+		
+	     <div class="col-md-8">
+
+	    	 <h1> {{ $post->title }} </h1>
+			 <p class="lead">{{ $post->body }}</p>
+		
+	     </div> 
+
+	    
 	</div>
 
 	

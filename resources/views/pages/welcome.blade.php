@@ -10,7 +10,7 @@
             <div class="col-md-8">
 
                 <div class="list-group">
-                <a class="list-group-item active">
+                <a class="list-group-item list-group-item-info">
                 Trend listing according to comments and ratings.
                 </a>
                 </div>
@@ -19,8 +19,8 @@
                     <div class="post">
                         <h2>{{ $post->title }}</h2>
                         <p>{{ $post->body }}</p>
-                        Tags: <span class="label label-success">Software</span><br><br>
-                        <a href="#" class="btn btn-primary">Learn more</a>  
+                        Tags: <span class="label label-warning">Software</span><br><br>
+                        <a href="#" class="btn btn-success">Learn more</a>  
                     </div>
                     <hr>  
 
@@ -33,7 +33,7 @@
                          
                     
                          <div class="list-group">
-                          <a href="/" class="list-group-item active">
+                          <a href="/" class="list-group-item list-group-item-info">
                             Popular listing
                           </a>
                           <a href="#" class="list-group-item">Agriculture </a>

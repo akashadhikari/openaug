@@ -7,16 +7,8 @@
 	<div class="row">
 
 		{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
-	     <div class="col-md-8">
-	     	{{ Form::label('title', 'Business:') }}
-	     	{{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
 
-	     	{{ Form::label('title', 'Description:', ['class' => 'form-spacing-top']) }}
-	     	{{ Form::textarea('body', null, ["class" => 'form-control']) }}
-	    	 
-	     </div> 
-
-	    <div class="col-md-4">
+		<div class="col-md-4">
 			<div class="well">
 
 				<dl class="dl-horizontal">
@@ -41,6 +33,20 @@
 
 		    </div>
 	    </div>
+
+	     <div class="col-md-8">
+	     	{{ Form::label('title', 'Business:') }}
+	     	{{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
+
+	     	{{ Form::label('slug', 'URL Slug:', ['class' => 'form-spacing-top']) }}
+	     	{{ Form::text('slug', null, ["class" => 'form-control']) }}
+
+	     	{{ Form::label('title', 'Description:', ['class' => 'form-spacing-top']) }}
+	     	{{ Form::textarea('body', null, ["class" => 'form-control']) }}
+	    	 
+	     </div> 
+
+	    
 	    {!! Form::close() !!}
 	</div>
 

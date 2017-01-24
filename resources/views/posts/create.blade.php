@@ -21,6 +21,9 @@
  				{{ Form::label('title','Business Name: (100 characters max)') }}
  				{{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '100')) }}
 
+ 				{{ Form::label('slug','URL Slug') }}
+ 				{{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '140')) }}
+
  				{{ Form::label('body','Business Description: (140 characters max)') }}
  				{{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '140')) }}
 
