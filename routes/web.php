@@ -19,6 +19,18 @@ Route::get('/', function () {
 });
 */
 Route::group(['middleware' => ['web']], function () {
+
+	// Authentication routes 
+	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']); 
+	Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']); 
+	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']); 
+
+	//Registration routes 
+	Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
+	Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);
+
+
+
 	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
 	Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.single']);
 	Route::get('contact', 'PagesController@getContact');
