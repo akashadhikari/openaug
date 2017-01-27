@@ -15,6 +15,11 @@
 				</dl>
 
 				<dl class="dl-horizontal">
+					<label>Business Type:</label>
+					<p>{{ $post->category->name }}</p>
+				</dl>
+
+				<dl class="dl-horizontal">
 					<label>Augmentified at:</label>
 					<p>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</p>
 				</dl>
