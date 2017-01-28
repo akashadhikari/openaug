@@ -29,13 +29,26 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
 	Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);
 
+	//Password resets-- do later
+
+	//end of pw reset routes
+
+	//categories
+	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+
+	//Tags
+	Route::resource('tags', 'TagController', ['except' => ['create']]);
+
 
 
 	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
 	Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.single']);
 	Route::get('contact', 'PagesController@getContact');
+	Route::post('contact', 'PagesController@postContact');
 	Route::get('about', 'PagesController@getAbout');
-	Route::get('/', 'PagesController@getIndex');
+	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
-
     });
+
+
+

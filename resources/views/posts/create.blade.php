@@ -2,12 +2,6 @@
 
  @section('title', '| New Post')
 
- @section('stylesheets')
-
- 		{!! Html::style('css/parsley.css') !!}
-
- @endsection
-
  @section('content')
 
  	<div class="row">
@@ -24,6 +18,13 @@
  				{{ Form::label('slug','URL Slug') }}
  				{{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '140')) }}
 
+ 				{{ Form::label('category_id', 'Business Type:') }}
+ 				<select class="form-control" name="category_id">
+ 					@foreach($categories as $category)
+ 						<option value='{{ $category->id }}'>{{ $category->name }}</option>
+ 					@endforeach
+ 				</select>
+
  				{{ Form::label('body','Business Description: (140 characters max)') }}
  				{{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '140')) }}
 
@@ -34,11 +35,5 @@
  		</div>
 
  	</div>
-
- @endsection
-
- @section('scripts')
-
- 	{!! Html::script('js/parsley.min.js') !!}
 
  @endsection

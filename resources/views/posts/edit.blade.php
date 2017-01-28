@@ -2,6 +2,7 @@
 
 @section('title', '| Regment Business')
 
+
 @section('content')
 
 	<div class="row">
@@ -40,6 +41,9 @@
 
 	     	{{ Form::label('slug', 'URL Slug:', ['class' => 'form-spacing-top']) }}
 	     	{{ Form::text('slug', null, ["class" => 'form-control']) }}
+
+	     	{{ Form::label('category_id', 'Business Type:', ['class' => 'form-spacing-top']) }}
+	     	{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
 
 	     	{{ Form::label('title', 'Description:', ['class' => 'form-spacing-top']) }}
 	     	{{ Form::textarea('body', null, ["class" => 'form-control']) }}
