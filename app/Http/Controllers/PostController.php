@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Tag;
 use App\Category;
 use Session;
 
@@ -35,7 +36,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('posts.create')->withCategories($categories);
+        $tags = Tag::all();
+        return view('posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -46,6 +48,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         //validate the data
         $this->validate($request, array(
             'title'       => 'required|max:100',
