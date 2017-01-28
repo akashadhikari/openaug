@@ -44,8 +44,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
 	Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.single']);
 	Route::get('contact', 'PagesController@getContact');
+	Route::post('contact', 'PagesController@postContact');
 	Route::get('about', 'PagesController@getAbout');
-	Route::get('/', 'PagesController@getIndex');
+	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
-
     });
+
+
+
