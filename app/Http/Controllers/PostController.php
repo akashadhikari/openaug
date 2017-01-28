@@ -36,8 +36,7 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $tags = Tag::all();
-        return view('posts.create')->withCategories($categories)->withTags($tags);
+        return view('posts.create')->withCategories($categories);
     }
 
     /**
@@ -48,7 +47,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+       
         //validate the data
         $this->validate($request, array(
             'title'       => 'required|max:100',

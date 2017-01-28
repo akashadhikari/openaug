@@ -32,9 +32,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
-            'name' => 'required|max:255'
-            ));
+        $this->validate($request, array('name' => 'required|max:255'));
         $tag = new Tag;
         $tag->name = $request->name;
         $tag->save();

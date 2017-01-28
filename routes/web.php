@@ -34,10 +34,10 @@ Route::group(['middleware' => ['web']], function () {
 	//end of pw reset routes
 
 	//categories
-	Route::resource('categories', 'CategoryController', ['except' => ['create']] );
+	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
 	//Tags
-	Route::resource('tags', 'TagController', ['except' => ['create']] );
+	Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 
 

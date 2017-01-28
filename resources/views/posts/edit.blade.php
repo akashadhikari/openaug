@@ -2,11 +2,6 @@
 
 @section('title', '| Regment Business')
 
- @section('stylesheets')
-
- 		{!! Html::style('css/select2.min.css') !!}
-
- @endsection
 
 @section('content')
 
@@ -60,9 +55,3 @@
 	</div>
 
 @endsection
-
-@section('scripts')
-
- 	{!! Html::style('js/select2.min.js') !!}
-
- @endsection
