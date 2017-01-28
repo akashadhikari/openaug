@@ -36,6 +36,9 @@ Route::group(['middleware' => ['web']], function () {
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']] );
 
+	//Tags
+	Route::resource('tags', 'TagController', ['except' => ['create']] );
+
 
 
 	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
