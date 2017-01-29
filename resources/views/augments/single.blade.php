@@ -33,14 +33,7 @@
 
 	</div>
 
-<!-- SHOWINFG THE COMMENTS NOT WORKING
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			@foreach($post->comments as $comment)
-				{{ $comment->comment }};
-			@endforeach
-		</div>
-	</div> -->
+
 
 	<div class="row">
 		<div class="comment-form" class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
