@@ -2,6 +2,20 @@
 
  @section('title', '| New Post')
 
+ @section('stylesheets')
+
+	 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
+	 <script>
+	 	tinymce.init({
+	 		selector: 'textarea',
+	 		plugins: 'link',
+	 		menubar: false
+	 	});
+	 </script>
+
+ @endsection
+
  @section('content')
 
  	<div class="row">
@@ -26,7 +40,7 @@
  				</select>
 
  				{{ Form::label('body','Business Description: (140 characters max)') }}
- 				{{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '140')) }}
+ 				{{ Form::textarea('body', null, array('class' => 'form-control', 'maxlength' => '140')) }}
 
  				{{ Form::submit('Create Your Augmented Business', array('class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-top:20px;')) }}
 
