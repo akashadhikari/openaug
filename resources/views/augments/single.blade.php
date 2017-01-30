@@ -16,18 +16,25 @@
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
 				</dl>
 
+				<dl class="dl-horizontal">
+					<label>Business Type:</label>
+					<p><a>{{$post->category->name}}</a></p>
+				</dl>
+
 				<div class="row">
 				    <div class="col-md-12">
 				    	{{ Html::linkRoute('posts.index', '<< See all businesses', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 				</div>
 
+				
+
 		    </div>
 	    </div>
 
 		 <div class="col-md-8">
 		 	<h1> {{ $post->title }} </h1>
-		 	<p> {{ $post->body }} </p>
+		 	<p> {!! $post->body !!} </p>
 		 	<hr>
 		 </div>
 

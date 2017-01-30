@@ -39,7 +39,7 @@
  					@endforeach
  				</select>
 
- 				{{ Form::label('body','Business Description: (140 characters max)') }}
+ 				{{ Form::label('body','Business Description: (300 characters max)') }}
  				{{ Form::textarea('body', null, array('class' => 'form-control', 'maxlength' => '140')) }}
 
  				{{ Form::submit('Create Your Augmented Business', array('class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-top:20px;')) }}

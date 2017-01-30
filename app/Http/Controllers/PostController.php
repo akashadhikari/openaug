@@ -53,7 +53,7 @@ class PostController extends Controller
             'title'       => 'required|max:100',
             'slug'        => 'required|alpha_dash|min:5|max:140|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body'        => 'required|max:140'
+            'body'        => 'required|max:300'
             ));
 
         //store in the database
