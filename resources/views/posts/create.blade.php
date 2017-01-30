@@ -2,6 +2,20 @@
 
  @section('title', '| New Post')
 
+ @section('stylesheets')
+
+	 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
+	 <script>
+	 	tinymce.init({
+	 		selector: 'textarea',
+	 		plugins: 'link',
+	 		menubar: false
+	 	});
+	 </script>
+
+ @endsection
+
  @section('content')
 
  	<div class="row">
@@ -10,7 +24,7 @@
  			<h1>Setup Your Business Information</h1>
  			<hr>
 
- 			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '')) !!}
+ 			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true)) !!}
  			
  				{{ Form::label('title','Business Name: (100 characters max)') }}
  				{{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '100')) }}
@@ -25,8 +39,11 @@
  					@endforeach
  				</select>
 
- 				{{ Form::label('body','Business Description: (140 characters max)') }}
- 				{{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '140')) }}
+				{{ Form::label('featured_image','Upload Business Image') }} 
+				{{ Form::file('featured_image') }}				
+
+ 				{{ Form::label('body','Business Description: (300 characters max)') }}
+ 				{{ Form::textarea('body', null, array('class' => 'form-control', 'maxlength' => '140')) }}
 
  				{{ Form::submit('Create Your Augmented Business', array('class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-top:20px;')) }}
 

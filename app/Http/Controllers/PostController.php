@@ -7,6 +7,8 @@ use App\Post;
 use App\Tag;
 use App\Category;
 use Session;
+use Purifier;
+use Image;
 
 class PostController extends Controller
 {
@@ -53,7 +55,7 @@ class PostController extends Controller
             'title'       => 'required|max:100',
             'slug'        => 'required|alpha_dash|min:5|max:140|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body'        => 'required|max:140'
+            'body'        => 'required|max:300'
             ));
 
         //store in the database
@@ -62,7 +64,18 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
+
+        //save the image -- optional field, thus IF CONDITION
+
+        if($request->hasFile('featured_image')) {
+            $image = $request->file('featured_image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            Image::make($image)->resize(800,400)->save($location);
+
+            $post->image = $filename;
+        }
    
         $post->save();
 
@@ -121,7 +134,7 @@ class PostController extends Controller
             $this->validate($request, array(
             'title' => 'required|max:100',
             'category_id' => 'required|integer',
-            'body'  => 'required|max:140'
+            'body'  => 'required|max:300'
             ));
 
         } else {
@@ -130,7 +143,7 @@ class PostController extends Controller
             'title' => 'required|max:100',
             'slug' => 'required|alpha_dash|min:5|max:140|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body'  => 'required|max:140'
+            'body'  => 'required|max:300'
             ));
         }
 
@@ -141,7 +154,7 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
-        $post->body  = $request->input('body');
+        $post->body  = Purifier::clean($request->input('body'));
 
         $post->save();
 
