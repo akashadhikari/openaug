@@ -24,7 +24,7 @@
  			<h1>Setup Your Business Information</h1>
  			<hr>
 
- 			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '')) !!}
+ 			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true)) !!}
  			
  				{{ Form::label('title','Business Name: (100 characters max)') }}
  				{{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '100')) }}
@@ -38,6 +38,9 @@
  						<option value='{{ $category->id }}'>{{ $category->name }}</option>
  					@endforeach
  				</select>
+
+				{{ Form::label('featured_image','Upload Business Image') }} 
+				{{ Form::file('featured_image') }}				
 
  				{{ Form::label('body','Business Description: (300 characters max)') }}
  				{{ Form::textarea('body', null, array('class' => 'form-control', 'maxlength' => '140')) }}

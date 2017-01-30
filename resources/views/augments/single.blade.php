@@ -11,8 +11,10 @@
 		<div class="col-md-4">
 			<div class="well">
 
+				<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+
 				<dl class="dl-horizontal">
-					<label>URL</label>
+					<label><br>URL</label>
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
 				</dl>
 
@@ -33,6 +35,7 @@
 	    </div>
 
 		 <div class="col-md-8">
+
 		 	<h1> {{ $post->title }} </h1>
 		 	<p> {!! $post->body !!} </p>
 		 	<hr>
