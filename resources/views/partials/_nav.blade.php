@@ -59,7 +59,7 @@
             </li>
 
             @else
-
+            <li class="{{ Request::is('login') ? "active" : "" }}"><a href="{{ route('register') }}">Register</a></li>
             <li class="{{ Request::is('login') ? "active" : "" }}"><a href="{{ route('login') }}">Login</a></li>
 
             @endif
