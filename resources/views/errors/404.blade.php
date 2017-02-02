@@ -41,7 +41,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Oops! Slight Bummer!</div>
-                <a href="{{ route('house') }}">Back to home!</a>
+                <a href="{{ route('house') }}"><b>Back to home!</b></a>
             </div>
         </div>
     </body>

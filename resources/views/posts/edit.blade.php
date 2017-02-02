@@ -27,6 +27,8 @@
 		
 				<div class="well">
 
+					<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+
 					<dl class="dl-horizontal">
 						<dt>Augmentified at:</dt>
 						<dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>

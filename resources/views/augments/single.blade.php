@@ -34,22 +34,17 @@
 		    </div>
 	    </div>
 
-		 <div class="col-md-8">
+		 <div id="comment_form" class="col-md-8">
 
 		 	<h1> {{ $post->title }} </h1>
 		 	<p> {!! $post->body !!} </p>
+
 		 	<hr>
-		 </div>
+		 	<p>Posted in: {{ $post->category->name }} </p>
+		 	<hr>
 
-	</div>
-
-
-
-	<div class="row">
-		<div class="comment-form" class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
-			
-			{{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) }}
-			<h3>Been Here? Add A Review</h3>
+		 	{{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) }}
+				<h3>Been Here? Add A Review</h3>
  			
  				<div class="row">
 
@@ -62,6 +57,7 @@
  						{{ Form::label('email','Your Email') }}
  						{{ Form::text('email', null, ['class' => 'form-control']) }}
  					</div>
+ 					<hr>
 
  					<div class="col-md-12">
  						{{ Form::label('comment','Review The Business') }}
@@ -73,13 +69,11 @@
  				</div>
  				
 
- 				
-
             {{ Form::close() }}
 
-		</div>
-	</div>
+		 </div>
 
+	</div>
 
 
 @endsection

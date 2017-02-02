@@ -21,11 +21,11 @@
             <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="/contact">Contact</a></li>
             
           </ul>
-          <form class="navbar-form navbar-left">
+          <form class="navbar-form navbar-left" role="search" action=" {{ route('search.results') }} ">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search businesses and places">
+              <input type="text" name="query" class="form-control" placeholder="Search businessess">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Search</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
 

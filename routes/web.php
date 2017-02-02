@@ -36,6 +36,9 @@ Route::group(['middleware' => ['web']], function () {
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
+	//search
+	Route::get('search', ['as' => 'search.results', 'uses' => 'SearchController@getResults']);
+
 	//Tags
 	Route::resource('tags', 'TagController', ['except' => ['create']]);
 

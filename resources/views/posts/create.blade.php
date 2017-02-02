@@ -43,7 +43,7 @@
 				{{ Form::file('featured_image') }}				
 
  				{{ Form::label('body','Business Description: (300 characters max)') }}
- 				{{ Form::textarea('body', null, array('class' => 'form-control', 'maxlength' => '140')) }}
+ 				{{ Form::textarea('body', null, array('class' => 'form-control', 'maxlength' => '300')) }}
 
  				{{ Form::submit('Create Your Augmented Business', array('class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-top:20px;')) }}
 
