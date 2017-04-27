@@ -5,8 +5,8 @@
 @section('content')
 
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-
+		<div class="col-sm-6 col-sm-offset-3">
+		<h3>Create new account</h3><hr>
 			{!! Form::open() !!}
 
 				{{ Form::label('name', "Full Name:") }}
