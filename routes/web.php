@@ -20,17 +20,8 @@ Route::get('/', function () {
 */
 Route::group(['middleware' => ['web']], function () {
 
-     Route::get('/', [
-		'as' => 'home', 
-		'uses' => 'PagesController@getIndex'
-		]);
-
 	// Authentication routes 
-	Route::get('login', [
-		'as' => 'login', 
-		'uses' => 'Auth\LoginController@showLoginForm'
-		]); 
-	
+	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']); 
 	Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']); 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']); 
 
@@ -57,14 +48,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('contact', 'PagesController@getContact');
 	Route::post('contact', 'PagesController@postContact');
 	Route::get('about', 'PagesController@getAbout');
+	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
     });
-
-	Route::get('/api',[
-		'as' => 'api',
-		'uses' => 'ApiController@getAllPosts'
-		]);
-
 
 
 
