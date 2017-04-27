@@ -1,2 +1,2 @@
 <hr>
-        <p class="text-center">Copyright © AR Technologies-2017</p>
+        <p class="text-center">Copyright © OpenAug-2017</p>

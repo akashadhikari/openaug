@@ -19,7 +19,7 @@
 				</dl>
 
 				<dl class="dl-horizontal">
-					<label>Business Type:</label>
+					<label>Augment Type:</label>
 					<p><a>{{$post->category->name}}</a></p>
 				</dl>
 

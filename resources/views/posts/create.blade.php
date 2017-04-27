@@ -21,7 +21,7 @@
  	<div class="row">
 
  		<div class="col-md-8 col-md-offset-2">
- 			<h1>Setup Your Business Information</h1>
+ 			<h1>Setup Your Augment</h1>
  			<hr>
 
  			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true)) !!}

@@ -6,7 +6,7 @@
 	<div class="row">
 
 		<div class="col-md-10">
-			<h1>All Augmented Businesses</h1>
+			<h1>All Augments</h1>
 		</div>
 
 		<div class="col-md-2">
@@ -24,7 +24,7 @@
 
   					<thead>
   						<th>#</th>
-  						<th>Business</th>
+  						<th>Augments</th>
   						<th>Description</th>
   						<th>Augmentified at</th>
   						<th></th>

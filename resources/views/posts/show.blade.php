@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| View Business')
+@section('title', '| View Augments')
 
 @section('content')
 
@@ -17,7 +17,7 @@
 				</dl>
 
 				<dl class="dl-horizontal">
-					<label>Business Type:</label>
+					<label>Augment Type:</label>
 					<p>{{ $post->category->name }}</p>
 				</dl>
 
