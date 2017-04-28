@@ -55,7 +55,7 @@ class PostController extends Controller
             'title'          => 'required|max:100',
             'slug'           => 'required|alpha_dash|min:5|max:140|unique:posts,slug',
             'category_id'    => 'required|integer',
-            'body'           => 'required|max:300',
+            'body'           => 'required|max:300', 
             'featured_image' => 'sometimes|image'
             ));
 
@@ -77,7 +77,6 @@ class PostController extends Controller
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
             Image::make($image)->resize(800,400)->save($location);
-
             $post->image = $filename;
         }
    
