@@ -9,15 +9,15 @@
     @include('partials._nav')    
 
 
-      <div class="container" style="min-height: 540px;">
+      <div class="container" style="min-height: 565px;">
 
           @include('partials._messages')
 
           @yield('content')
-          @include('partials._footer')
+          
 
       </div>
-      
+      @include('partials._footer')
     @include('partials._javascript')
     @yield('scripts')
 

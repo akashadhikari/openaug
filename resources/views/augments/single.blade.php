@@ -11,12 +11,12 @@
 		<div class="col-md-4">
 			<div class="well">
 
-				<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+				<img class="img img-responsive" src="{{ asset('images/' . $post->image) }}" />
 
-				<dl class="dl-horizontal">
+				<!-- <dl class="dl-horizontal">
 					<label><br>URL</label>
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
-				</dl>
+				</dl> -->
 
 				<dl class="dl-horizontal">
 					<label>Augment Type:</label>
@@ -38,13 +38,21 @@
 
 		 	<h1> {{ $post->title }} </h1>
 		 	<p> {!! $post->body !!} </p>
-		 	<hr>
+
 		 </div>
+		 
+		 
 
 	</div>
 
+	<div class="row">
+		 <input type="hidden" name="" id="lat" value="{{ $post->lat}}">
+		 <input type="hidden" name="" id="long" value="{{ $post->long}}">
+		 <input type="hidden" name="" id="title" value="{{ $post->title}}">
+		 <div id="map" style="min-height: 400px;"></div>
+	</div>
 
-
+	<hr>
 	<div class="row">
 		<div class="comment-form" class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
 			
@@ -67,7 +75,7 @@
  						{{ Form::label('comment','Review The Business') }}
  						{{ Form::textarea('comment', null, ['class' => 'form-control', 'rows'=> '5']) }}
 
- 						{{ Form::submit('Submit Review', ['class' => 'btn btn-success btn-block', 'style' =>'margin-top: 15px;']) }}
+ 						{{ Form::submit('Submit Review', ['class' => 'pull-right btn btn-success', 'style' =>'margin-top: 15px;']) }}
  					</div>
 
  				</div>
@@ -79,7 +87,10 @@
 
 		</div>
 	</div>
+@endsection
 
-
-
+@section('scripts')
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1VJ_karyJHBxGvQ3B9H-Gb-W_aS5WKI&callback=initMap">
+    </script>
+    <script type="text/javascript" src="{{URL::asset('js/placeshower.js')}}"></script>
 @endsection
