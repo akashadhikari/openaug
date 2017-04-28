@@ -54,8 +54,16 @@ Route::group(['middleware' => ['web']], function () {
 
 	// Api for android
 
+	// for all posts
 	Route::get('api/posts/all',[
 		'as' => 'pages.api',
 		'uses' => 'ApiController@getAllPosts'
 		]);
+
+	// for categorywise posts 
+	Route::get('api/post/{category}',[
+		'as' => 'pages.api',
+		'uses' => 'ApiController@getPostCategoryWise'
+		]);	
+
 
