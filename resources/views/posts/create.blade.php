@@ -62,12 +62,12 @@
  				</div>
  				<div class="form-group col-md-6">
  				<label>Latittude</label>
- 					<input type="text" id="lat" readonly="yes" class="form-control" name="lat"><br>
+ 					<input type="text" id="lat"  class="form-control" name="lat"><br>
  				</div>
 
  				<div class="form-group col-md-6">
  				<label>Longitude</label>		 
-                   <input type="text" id="lng" readonly="yes" class="form-control" name="lng">
+                   <input type="text" id="lng"  class="form-control" name="lng">
  				</div>
  				<div class="form-group col-md-12">
  					<label>Description</label>
