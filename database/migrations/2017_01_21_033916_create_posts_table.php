@@ -17,8 +17,8 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
-            $table->decimal('lat', 10, 7);
-            $table->decimal('long', 10, 7);
+            $table->double('lat', 20, 15);
+            $table->double('long', 20, 15);
             $table->timestamps();
         });
     }
