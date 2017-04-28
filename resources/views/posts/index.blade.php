@@ -36,7 +36,7 @@
   							<tr>
   								<th>{{ $post->id }}</th>
   								<td>{{ $post->title}}</td>
-  								<td>{{ substr($post->body, 0, 140)}}</td>
+  								<td>{{ substr(strip_tags($post->body), 0, 140)}}</td>
   								<td>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</td>
   								<td><a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">View</a></td>
   								<td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Edit</a></td>
