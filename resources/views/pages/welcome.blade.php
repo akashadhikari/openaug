@@ -17,7 +17,7 @@
                 @foreach($posts as $post)
 
                     <div class="post">
-                        <h2>{{ $post->title }}</h2>
+                        <h3>{{ $post->title }}</h3>
                         <p>{!! $post->body !!}</p>
                         Tags: <span class="label label-warning">Software</span><br><br>
                         <a href=" {{ route('augments.single', $post->slug) }} " class="btn btn-success">Learn more</a>  

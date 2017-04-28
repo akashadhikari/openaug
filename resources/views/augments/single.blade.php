@@ -7,11 +7,10 @@
 @section('content')
 
 	<div class="row">
-
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<div class="well">
 
-				<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+				<img class="img img-responsive" src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
 
 				<dl class="dl-horizontal">
 					<label><br>URL</label>
@@ -25,16 +24,13 @@
 
 				<div class="row">
 				    <div class="col-md-12">
-				    	{{ Html::linkRoute('posts.index', '<< See all businesses', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
+				    	{{ Html::linkRoute('posts.index', '<< View all lists', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 				</div>
-
-				
-
 		    </div>
 	    </div>
 
-		 <div class="col-md-8">
+		 <div class="col-md-7">
 
 		 	<h1> {{ $post->title }} </h1>
 		 	<p> {!! $post->body !!} </p>
@@ -49,7 +45,7 @@
 		<div class="comment-form" class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
 			
 			{{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) }}
-			<h3>Been Here? Add A Review</h3>
+			<h3>Been here? Add a review.</h3><hr>
  			
  				<div class="row">
 
