@@ -52,5 +52,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('posts', 'PostController');
     });
 
+	// Api for android
 
+	Route::get('api/posts/all',[
+		'as' => 'pages.api',
+		'uses' => 'ApiController@getAllPosts'
+		]);
 
