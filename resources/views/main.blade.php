@@ -9,7 +9,7 @@
     @include('partials._nav')    
 
 
-      <div class="container">
+      <div class="container" style="min-height: 540px;">
 
           @include('partials._messages')
 
