@@ -10,6 +10,8 @@ use Session;
 use Purifier;
 use Image;
 use Storage;
+use Auth;
+
 
 class PostController extends Controller
 {
@@ -25,7 +27,11 @@ class PostController extends Controller
     public function index()
     {
         //create a variable and store all posts in the db
-        $posts= Post::orderBy('id', 'desc')->paginate(10);
+       $posts= Post::with('user')->where(function($query) {
+                return $query->where('u_id', Auth::user()->id);
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         //return a view and pass in the above variable
         return view('posts.index')->withPosts($posts);
@@ -62,11 +68,11 @@ class PostController extends Controller
         //store in the database
         $post = new Post;
 
+        $post->u_id = Auth::user()->id;
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->lat = $request->lat;
         $post->long = $request->lng;
-
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
 
@@ -81,7 +87,7 @@ class PostController extends Controller
             $post->image = $filename;
         }
    
-        $post->save();
+       $post->save();
 
         Session::flash('success', 'Congratulations! Your business is successfully saved.');
 
