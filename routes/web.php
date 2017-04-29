@@ -33,6 +33,13 @@ Route::group(['middleware' => ['web']], function () {
 
 	//end of pw reset routes
 
+	// user profile
+	Route::get('/user/profile/{userid}', [
+		'as' => 'user.profile', 
+		'uses' => 'ProfileController@getProfile'
+		]);
+
+
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
@@ -44,7 +51,7 @@ Route::group(['middleware' => ['web']], function () {
 
 
 	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
-	Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.index']);
+	// Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.index']);
 	Route::get('contact', 'PagesController@getContact');
 	Route::post('contact', 'PagesController@postContact');
 	Route::get('about', 'PagesController@getAbout');
