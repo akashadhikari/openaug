@@ -13,10 +13,10 @@
 
 				<img class="img img-responsive" src="{{ asset('images/' . $post->image) }}" />
 
-				<!-- <dl class="dl-horizontal">
+				<dl class="dl-horizontal">
 					<label><br>URL</label>
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
-				</dl> -->
+				</dl>
 
 				<dl class="dl-horizontal">
 					<label>Augment Type:</label>

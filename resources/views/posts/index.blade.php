@@ -6,16 +6,12 @@
 	<div class="row">
 
 		<div class="col-md-10">
-			<h1>All Augments</h1>
+			<h3>All augments <small class="text-muted">List view</small></h3>
 		</div>
 
-		<div class="col-md-2">
+	<!-- 	<div class="col-md-2">
 			<a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-success btn-h1-spacing">New Augment</a>
-		</div>
-
-		<div class="col-md-12">
-			<hr>
-		</div>
+		</div> -->
 
 		<div class="row">
 			<div class="col-md-12">
