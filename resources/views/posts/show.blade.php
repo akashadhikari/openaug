@@ -11,10 +11,10 @@
 
 				<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
 
-				<dl class="dl-horizontal">
+				<!-- <dl class="dl-horizontal">
 					<label>URL</label>
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
-				</dl>
+				</dl> -->
 
 				<dl class="dl-horizontal">
 					<label>Augment Type:</label>
@@ -58,7 +58,13 @@
 
 	    	 <h1> {{ $post->title }} </h1>
 			 <p class="lead">{!! $post->body !!}</p>
-		
+
+			<p>
+				 <input type="hidden" name="" id="lat" value="{{ $post->lat}}">
+				 <input type="hidden" name="" id="long" value="{{ $post->long}}">
+				 <input type="hidden" name="" id="title" value="{{ $post->title}}">
+				 <div id="map" style="min-height: 400px;border: 1px solid grey;"></div>
+			</p>
 	     </div> 
 
 	    
@@ -66,4 +72,9 @@
 
 	
 
+@endsection
+@section('scripts')
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1VJ_karyJHBxGvQ3B9H-Gb-W_aS5WKI&callback=initMap">
+    </script>
+    <script type="text/javascript" src="{{URL::asset('js/placeshower.js')}}"></script>
 @endsection

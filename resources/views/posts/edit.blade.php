@@ -4,6 +4,10 @@
 
 @section('stylesheets')
 
+	 <style type="text/css">
+          #map{ height:420px;border: 2px solid grey;}
+     </style>
+
 	 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
 	 <script>
@@ -13,7 +17,7 @@
 	 		menubar: false
 	 	});
 	 </script>
-
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWmmA_OBuWijfD7TpF60u7JRa-C91D6oQ&callback=initMap"></script>
  @endsection
 
 @section('content')
@@ -66,6 +70,20 @@
 	     	{{ Form::label('body', 'Description:', ['class' => 'form-spacing-top']) }}
 	     	{{ Form::textarea('body', null, ["class" => 'form-control']) }}
 	    	 
+	     	<br>
+ 			<label>Pick a location on map</label>	
+ 			<div id="map"></div><br>
+ 			
+ 			<div class="form-group col-md-6">
+ 				<label>Latittude</label>
+ 					<input type="text" id="lat"  class="form-control" name="lat"><br>
+ 			</div>
+
+ 			<div class="form-group col-md-6">
+ 				<label>Longitude</label>		 
+                   <input type="text" id="lng"  class="form-control" name="lng">
+ 			</div>
+
 	     </div> 
 
 	    
@@ -73,3 +91,7 @@
 	</div>
 
 @endsection
+ @section('scripts')
+      	 <script type="text/javascript" src="{{URL::asset('js')}}/mappicker.js"></script>
+
+ @stop

@@ -136,6 +136,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         //validate the data
         $post= Post::find($id);
 
@@ -167,6 +168,8 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
+        $post->lat = $request->input('lat');
+        $post->long = $request->input('lng');
         $post->body  = Purifier::clean($request->input('body'));
 
         if($request->hasFile('featured_image')) {
