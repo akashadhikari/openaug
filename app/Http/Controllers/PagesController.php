@@ -5,14 +5,15 @@ use Illuminate\Http\Request;
 use App\Post;
 use Mail;
 use Session;
-
+use App\Category;
 class PagesController extends Controller {
 
 	public function getIndex() 
 	{
 		
 		$posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
-		return view('pages.welcome')->withPosts($posts);
+		$categories = Category::limit(8)->get();
+		return view('pages.welcome')->withPosts($posts)->with('categories',$categories);
 	}
 
 	public function getAbout() {
