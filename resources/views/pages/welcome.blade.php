@@ -33,11 +33,13 @@
                           <a href="/" class="list-group-item list-group-item-info">
                             Popular listing
                           </a>
-                          <a href="#" class="list-group-item">Agriculture </a>
-                          <a href="#" class="list-group-item">Art and Craft</a>
-                          <a href="#" class="list-group-item">Banking</a>
-                          <a href="#" class="list-group-item">Electronics</a>
-                          <a href="#" class="list-group-item">Software</a>
+                          @if($categories->count() < 0)
+                            <p>Nothing to show</p>
+                          @else
+                            @foreach($categories as $category)
+                            <a href="#" class="list-group-item">{{$category->name}}</a>
+                            @endforeach
+                          @endif
                         </div>
             </div>
         
