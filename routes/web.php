@@ -58,7 +58,17 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
     });
+	
+	Route::get('/search',[
+		'as' => 'search.result',
+		'uses' => 'SearchController@getResult'
+		]);
 
+	// autosuggest search
+	 Route::get('/autosuggest',[
+		'as' => 'search.autosuggest',
+		'uses' => 'SearchController@getAutoSuggestResult'
+		]);
 	// Api for android
 
 	// for all posts

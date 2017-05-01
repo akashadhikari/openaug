@@ -21,9 +21,9 @@
             <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{route('house')}}/contact">Contact</a></li>
             
           </ul>
-          <form class="navbar-form navbar-left">
+          <form class="navbar-form navbar-left"  class="form-control" action="{{route('search.result')}}">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search businesses and places">
+              <input type="text" class="form-control" placeholder="Find places..." id="auto" name="query">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
