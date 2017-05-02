@@ -43,6 +43,12 @@ Route::group(['middleware' => ['web']], function () {
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
+	// show posts categorywise
+	Route::get('/post/category/{cat}', [
+		'as' => 'pages.distinct', 
+		'uses' => 'PagesController@getPostCategoryWise'
+		]);
+
 	//Tags
 	Route::resource('tags', 'TagController', ['except' => ['create']]);
 
