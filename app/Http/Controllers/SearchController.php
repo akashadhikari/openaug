@@ -17,7 +17,7 @@ class SearchController extends Controller
 
     public function getAutoSuggestResult(Request $request)
     {
-     	$query = $request->input('query');
+     	$query = $request->get('term');
     	$posts = Post::with('category')->where('title','like','%'.$query.'%')->get();
     	
     	$result= array();

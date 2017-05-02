@@ -7,7 +7,6 @@
     <script type="text/javascript" src="{{URL::asset('js/jquery-ui.js')}}"></script>
     <script type="text/javascript">
     	$('#auto').autocomplete({
-  	
 			  source: "{{route('search.autosuggest')}}",
 			  focus: function(event, ui) {
 			    $(this).val(ui.item.label);
