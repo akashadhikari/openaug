@@ -16,7 +16,7 @@
                     <div class="post">
                         <h2>{{ $post->title }}</h2>
                         <p>{!! $post->body !!}</p>
-                        Tags: <span class="label label-warning">Software</span><br><br>
+                        Category: <span class="label label-warning">{{$post->category->name}}</span><br><br>
                         <a href=" {{ route('augments.single', $post->slug) }} " class="btn btn-success">Learn more</a>  
                     </div>
                     <hr>  
@@ -31,13 +31,13 @@
                     
                          <div class="list-group">
                           <a href="/" class="list-group-item list-group-item-info">
-                            Popular listing
+                            Popular Categories
                           </a>
                           @if($categories->count() < 0)
                             <p>Nothing to show</p>
                           @else
                             @foreach($categories as $category)
-                            <a href="#" class="list-group-item">{{$category->name}}</a>
+                            <a href="{{route('pages.distinct',['cat' => $category->name])}}" class="list-group-item">{{$category->name}}</a>
                             @endforeach
                           @endif
                         </div>
