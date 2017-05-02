@@ -89,7 +89,7 @@ class PostController extends Controller
    
        $post->save();
 
-        Session::flash('success', 'Congratulations! Your business is successfully saved.');
+        Session::flash('success', 'Congratulations! Your augment is successfully saved.');
 
         //redirect to another page
         return redirect()->route('posts.show', $post->id);

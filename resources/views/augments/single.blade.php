@@ -12,10 +12,16 @@
 			<div class="well">
 
 				<img class="img img-responsive" src="{{ asset('images/' . $post->image) }}" />
-
+<!--
 				<dl class="dl-horizontal">
 					<label><br>URL</label>
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
+				</dl> -->
+
+				<dl class="dl-horizontal">
+					<label>Location:</label>
+					<p><a>Lat: {{$post->lat}}</a></p>
+					<p><a>Lon: {{$post->long}}</a></p>
 				</dl>
 
 				<dl class="dl-horizontal">
@@ -23,9 +29,11 @@
 					<p><a>{{$post->category->name}}</a></p>
 				</dl>
 
+
+
 				<div class="row">
 				    <div class="col-md-12">
-				    	{{ Html::linkRoute('posts.index', '<< See all businesses', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
+				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 				</div>
 

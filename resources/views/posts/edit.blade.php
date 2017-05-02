@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| Regment Business')
+@section('title', '| Edit Augments')
 
 @section('stylesheets')
 
@@ -37,7 +37,7 @@
 					</dl>
 
 					<dl class="dl-horizontal">
-						<dt>Regmented at:</dt>
+						<dt>Edited at:</dt>
 						<dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
 					</dl>
 					<hr>
@@ -55,13 +55,13 @@
 		    </div>
 
 	     <div class="col-md-8">
-	     	{{ Form::label('title', 'Business:') }}
+	     	{{ Form::label('title', 'Augment:') }}
 	     	{{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
 
 	     	{{ Form::label('slug', 'URL Slug:', ['class' => 'form-spacing-top']) }}
 	     	{{ Form::text('slug', null, ["class" => 'form-control']) }}
 
-	     	{{ Form::label('category_id', 'Business Type:', ['class' => 'form-spacing-top']) }}
+	     	{{ Form::label('category_id', 'Augment Type:', ['class' => 'form-spacing-top']) }}
 	     	{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
 
 	     	{{ Form::label('featured_image','Update Business Image', ['class' => 'form-spacing-top']) }} 

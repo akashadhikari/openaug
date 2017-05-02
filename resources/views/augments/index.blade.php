@@ -17,7 +17,7 @@
 	  	<div class="col-md-6">
 	   		<h3>{{ $post->title }}</h3>
 			<p><b>Augment Type:</b> {{ $post->category->name }}</p>
-			<h5><b>Regmented at:</b> {{ date('M j, Y', strtotime($post->updated_at)) }}</h5>
+			<h5><b>Edited at:</b> {{ date('M j, Y', strtotime($post->updated_at)) }}</h5>
 			<p>{!! $post->body !!}</p>
 			<a href="{{ route('augments.single', $post->slug) }}" class="btn btn-primary">Learn more</a>
 		</div>

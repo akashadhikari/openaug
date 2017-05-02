@@ -32,7 +32,7 @@
  			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true)) !!}
  			
  				<div class="form-group col-md-12">
- 					<label>Company Name or Business Place</label>
+ 					<label>Augment Name</label>
  					<input type="text" name="title" class="form-control">
  				</div>
 
@@ -42,7 +42,7 @@
  				</div>
 
  				<div class="col-lg-6 form-group">
-	 				{{ Form::label('category_id', 'Business Type:') }}
+	 				{{ Form::label('category_id', 'Augment Type:') }}
 	 				<select class="form-control" name="category_id">
 	 					@foreach($categories as $category)
 	 						<option value='{{ $category->id }}'>{{ $category->name }}</option>
@@ -61,7 +61,7 @@
  					<div id="map"></div><br>
  				</div>
  				<div class="form-group col-md-6">
- 				<label>Latittude</label>
+ 				<label>Latitude</label>
  					<input type="text" id="lat"  class="form-control" name="lat"><br>
  				</div>
 
