@@ -11,7 +11,7 @@ class PagesController extends Controller {
 	public function getIndex() 
 	{
 		
-		$posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+		$posts = Post::with('category')->orderBy('created_at', 'desc')->paginate(5);
 		$categories = Category::limit(8)->get();
 		return view('pages.welcome')->withPosts($posts)->with('categories',$categories);
 	}
@@ -56,5 +56,15 @@ class PagesController extends Controller {
 
         //redirect to another page
         return redirect()->route('house');
+	}
+
+	public function getPostCategoryWise($category)
+	{
+		$posts = Post::with('Category')->whereHas('Category', function($query) use ($category) {
+			 			$query->where('name', $category);
+						})->get();
+
+		$categories = Category::limit(8)->get();
+		return view('pages.distinct')->withPosts($posts)->with('categories',$categories);
 	}
 }
