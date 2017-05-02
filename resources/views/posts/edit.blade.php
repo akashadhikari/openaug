@@ -64,7 +64,7 @@
 	     	{{ Form::label('category_id', 'Augment Type:', ['class' => 'form-spacing-top']) }}
 	     	{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
 
-	     	{{ Form::label('featured_image','Update Business Image', ['class' => 'form-spacing-top']) }} 
+	     	{{ Form::label('featured_image','Update Augment Image', ['class' => 'form-spacing-top']) }} 
 			{{ Form::file('featured_image') }}
 
 	     	{{ Form::label('body', 'Description:', ['class' => 'form-spacing-top']) }}

@@ -27,7 +27,7 @@
 				</dl>
 
 				<dl class="dl-horizontal">
-					<label>Regmented at:</label>
+					<label>Edited at:</label>
 					<p>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</p>
 				</dl>
 				<hr>

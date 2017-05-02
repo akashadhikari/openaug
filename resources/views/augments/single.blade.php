@@ -80,7 +80,7 @@
  					</div>
 
  					<div class="col-md-12">
- 						{{ Form::label('comment','Review The Business') }}
+ 						{{ Form::label('comment','Review The Augment') }}
  						{{ Form::textarea('comment', null, ['class' => 'form-control', 'rows'=> '5']) }}
 
  						{{ Form::submit('Submit Review', ['class' => 'pull-right btn btn-success', 'style' =>'margin-top: 15px;']) }}

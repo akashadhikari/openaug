@@ -192,7 +192,7 @@ class PostController extends Controller
         $post->save();
 
         //Set a success message
-        Session::flash('success', 'Regmented successfully.');
+        Session::flash('success', 'Edited successfully.');
 
         //Redirect with flash data to posts.show
         return redirect()->route('posts.show', $post->id);
