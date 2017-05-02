@@ -17,15 +17,19 @@ class SearchController extends Controller
 
     public function getAutoSuggestResult(Request $request)
     {
-     	$query = $request->get('term');
-    	$posts = Post::with('category')->where('title','like','%'.$query.'%')->get();
-    	
-    	$result= array();
+     	if ($request->ajax()) 
+     	{
+	     	$query = $request->get('term');
+	    	$posts = Post::with('category')->where('title','like','%'.$query.'%')->get();
+	    	
+	    	$result= array();
 
-    	foreach($posts as $post)
-    	{
-    		$result[] = ['id'=> $post->id, 'value'=> $post->title];
-    	}
-    	return response()->json($result);
+	    	foreach($posts as $post)
+	    	{
+	    		$result[] = ['id'=> $post->id, 'value'=> $post->title];
+	    	}
+	    	return response()->json($result);
+     	}
+     	abort(404);
     }
 }
