@@ -1,4 +1,3 @@
-
 	<div class="row">
 		<div class="col-md-8">
 			<h3 style="color: ">Augments created</h3>
@@ -10,7 +9,12 @@
 	<div class="media">
 	  <div class="media-left">
 	    <a href="#">
-	      <img class="media-object" src="{{ asset('images/' . $post->image) }}" alt="..." style="height:200px;border-radius:1px;box-shadow:0 1px 6px rgba(0,0,0,0.175);padding: 10px;">
+	    @if($post->image==NULL)
+	    <img class="media-object dp img" src="{{$user->getAvatarUrl()}}" height="190" width="320"/>
+	   	@else
+	   	<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+	   	@endif
+	      
 	    </a>
 	  </div>
 	  <div class="media-body">
