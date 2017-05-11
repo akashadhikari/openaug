@@ -17,19 +17,26 @@
 				</dl> -->
 
 				<dl class="dl-horizontal">
+					<br><label>Location:</label>
+					<p><a>Lat: {{$post->lat}}</a></p>
+					<p><a>Lon: {{$post->long}}</a></p>
+				</dl>
+
+				<dl class="dl-horizontal">
 					<label>Augment Type:</label>
-					<p>{{ $post->category->name }}</p>
+					<br><span class="label label-warning">{{$post->category->name}}</span>
+					@if($post->category->name == 'Natural Spot')
+                            <br><br><label>Current Weather:</label>
+                            @else
+                            @endif
 				</dl>
 
-				<dl class="dl-horizontal">
-					<label>Augmentified at:</label>
-					<p>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</p>
-				</dl>
 
 				<dl class="dl-horizontal">
-					<label>Edited at:</label>
-					<p>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</p>
+					<label>Updated at:</label>
+					<p>{{ date('M j, Y', strtotime($post->updated_at)) }}</p>
 				</dl>
+				
 				<hr>
 				<div class="row">
 					<div class="col-sm-6">
@@ -57,14 +64,15 @@
 	     <div class="col-md-8">
 
 	    	 <h1> {{ $post->title }} </h1>
-			 <p class="lead">{!! $post->body !!}</p>
-
-			<p>
+	    	 <p>
 				 <input type="hidden" name="" id="lat" value="{{ $post->lat}}">
 				 <input type="hidden" name="" id="long" value="{{ $post->long}}">
 				 <input type="hidden" name="" id="title" value="{{ $post->title}}">
-				 <div id="map" style="min-height: 400px;border: 1px solid grey;"></div>
+				 <div id="map" style="min-height: 300px;border: 1px solid grey;"></div>
 			</p>
+			 <p class="lead">{!! $post->body !!}</p>
+
+			
 	     </div> 
 
 	    

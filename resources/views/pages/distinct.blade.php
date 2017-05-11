@@ -13,12 +13,24 @@
                 </div>
                 @foreach($posts as $post)
 
-                    <div class="post">
-                        <h2>{{ $post->title }}</h2>
-                        <p>{!! $post->body !!}</p>
-                        Category: <span class="label label-warning">{{$post->category->name}}</span><br><br>
-                        <a href=" {{ route('augments.single', $post->slug) }} " class="btn btn-success">Learn more</a>  
-                    </div>
+                      <div class="media">
+                          <div class="media-left">
+                            <a href="#">
+                              <img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <div class="col-md-12">
+                              <h3>{{ $post->title }}</h3>
+                              <p>{!! $post->body !!}</p>
+                            Augment type: <span class="label label-warning">{{$post->category->name}}</span><br><br>
+                            
+                            
+                            <a href="{{ route('augments.single', $post->slug) }}" class="btn btn-sm btn-success">Learn more</a>
+                          </div>
+                      </div>
+                </div>
+
                     <hr>  
 
                 @endforeach 
@@ -37,7 +49,7 @@
                             <p>Nothing to show</p>
                           @else
                             @foreach($categories as $category)
-                             <a href="{{route('pages.distinct',['cat' => $category->name])}}" class="list-group-item">{{$category->name}}</a>
+                             <a href="{{route('pages.distinct',['cat' => str_slug($category->name)])}}" class="list-group-item">{{$category->name}}</a>
                             @endforeach
                           @endif
                         </div>

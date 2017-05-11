@@ -72,7 +72,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->lat = $request->lat;
-        $post->long = $request->lng;
+        $post->lng = $request->lng;
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
 

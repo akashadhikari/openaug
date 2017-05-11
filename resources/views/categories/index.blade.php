@@ -23,23 +23,14 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1>Augment Categories</h1>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Name</th>
-					</tr>
-				</thead>
-
-				<tbody>
+			
 					@foreach($categories as $category)
-					<tr>
-						<th>{{ $category->id }}</th>
-						<th>{{ $category->name }}</th>
-					</tr>
+					
+					<a href="{{route('pages.distinct',['cat' => $category->name])}}" class="list-group-item">{{$category->name}}</a>
+						
+				
 					@endforeach
-				</tbody>
-			</table>
+				
 		</div>
 
 		

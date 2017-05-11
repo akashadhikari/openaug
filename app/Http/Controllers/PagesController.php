@@ -18,8 +18,8 @@ class PagesController extends Controller {
 
 	public function getAbout() {
 
-		$first  = 'AR';
-		$second = 'Enterprise';
+		$first  = 'openAug';
+		$second = 'Inc.';
 		$fullname   = $first . " " . $second;
 		$email = 'example@xyz.com';
 		$data= [];

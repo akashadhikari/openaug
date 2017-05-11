@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         //validate the data
         $this->validate($request, array(
-            'name' => 'max:255'
+            'name' => 'required|max:255'
             ));
 
         //store in the database

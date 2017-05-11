@@ -11,22 +11,26 @@
 		<div class="col-md-4">
 			<div class="well">
 
-				<img class="img img-responsive" src="{{ asset('images/' . $post->image) }}" />
-<!--
+				<img src="{{ asset('images/' . $post->image) }}" height="190" width="320"/>
+				<!--
 				<dl class="dl-horizontal">
 					<label><br>URL</label>
 					<p><a href="{{ route('augments.single', $post->slug) }}">{{ url('augments/'.$post->slug) }}</a></p>
 				</dl> -->
 
 				<dl class="dl-horizontal">
-					<label>Location:</label>
+					<br><label>Location:</label>
 					<p><a>Lat: {{$post->lat}}</a></p>
 					<p><a>Lon: {{$post->long}}</a></p>
 				</dl>
 
 				<dl class="dl-horizontal">
 					<label>Augment Type:</label>
-					<p><a>{{$post->category->name}}</a></p>
+					<br><span class="label label-warning">{{$post->category->name}}</span>
+					@if($post->category->name == 'Natural Spot')
+                            <br><br><label>Current Weather:</label>
+                            @else
+                            @endif
 				</dl>
 
 
@@ -42,15 +46,26 @@
 		    </div>
 	    </div>
 
-		 <div class="col-md-8">
+		  <div class="col-md-8">
 
-		 	<h1> {{ $post->title }} </h1>
-		 	<p> {!! $post->body !!} </p>
+	    	 <h1> {{ $post->title }} </h1>
+	    	 <p>
+				 <input type="hidden" name="" id="lat" value="{{ $post->lat}}">
+				 <input type="hidden" name="" id="long" value="{{ $post->long}}">
+				 <input type="hidden" name="" id="title" value="{{ $post->title}}">
+				 <div id="map" style="min-height: 300px;border: 1px solid grey;"></div>
+			</p>
+			 <p class="lead">{!! $post->body !!}</p>
 
-		 </div>
+			
+	     </div>
 		 
-		 
+	</div>
 
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			
+		</div>
 	</div>
 
 	<div class="row">

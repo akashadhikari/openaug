@@ -32,13 +32,13 @@
 				<div class="well">
 
 					<dl class="dl-horizontal">
-						<dt>Augmentified at:</dt>
-						<dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
+						<dt>Augmented at:</dt>
+						<dd>{{ date('M j, Y', strtotime($post->created_at)) }}</dd>
 					</dl>
 
 					<dl class="dl-horizontal">
 						<dt>Edited at:</dt>
-						<dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
+						<dd>{{ date('M j, Y', strtotime($post->updated_at)) }}</dd>
 					</dl>
 					<hr>
 					<div class="row">
@@ -73,16 +73,15 @@
 	     	<br>
  			<label>Pick a location on map</label>	
  			<div id="map"></div><br>
- 			
- 			<div class="form-group col-md-6">
- 				<label>Latittude</label>
- 					<input type="text" id="lat"  class="form-control" name="lat"><br>
- 			</div>
 
- 			<div class="form-group col-md-6">
- 				<label>Longitude</label>		 
-                   <input type="text" id="lng"  class="form-control" name="lng">
- 			</div>
+ 			{{ Form::label('lat', 'Latitude:', ['class' => 'form-spacing-top']) }}
+	     	{{ Form::text('lat', null, ["class" => 'form-control']) }}
+
+	     	{{ Form::label('lng', 'Longitude:', ['class' => 'form-spacing-top']) }}
+	     	{{ Form::text('lng', null, ["class" => 'form-control']) }}
+
+ 			
+ 			
 
 	     </div> 
 

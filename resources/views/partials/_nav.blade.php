@@ -23,7 +23,7 @@
           </ul>
           <form class="navbar-form navbar-left"  class="form-control" action="{{route('search.result')}}">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search..." id="auto" name="query">
+              <input type="text" class="form-control" placeholder="Search Augments" id="auto" name="query">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>

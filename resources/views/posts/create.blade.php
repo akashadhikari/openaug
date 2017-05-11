@@ -60,6 +60,7 @@
  					<label>Pick a location on map</label>	
  					<div id="map"></div><br>
  				</div>
+
  				<div class="form-group col-md-6">
  				<label>Latitude</label>
  					<input type="text" id="lat"  class="form-control" name="lat"><br>
@@ -69,10 +70,12 @@
  				<label>Longitude</label>		 
                    <input type="text" id="lng"  class="form-control" name="lng">
  				</div>
+
  				<div class="form-group col-md-12">
  					<label>Description</label>
  					<textarea name="body" class="form-control" rows="10"></textarea>
  				</div>
+ 				
  				<div class="col-md-12"> 
  					{{ Form::submit('Publish', array('class' => 'btn btn-primary pull-right', 'style' => 'margin-top:20px;')) }}
  				</div>
