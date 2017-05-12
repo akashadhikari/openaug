@@ -30,6 +30,7 @@
 					@if($post->category->name == 'Natural Spot')
                             <br><br><label>Current Weather:</label>
                             @else
+                            
                             @endif
 				</dl>
 

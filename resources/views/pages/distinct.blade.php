@@ -45,7 +45,7 @@
                           <a href="/" class="list-group-item list-group-item-info">
                             Popular Categories
                           </a>
-                          @if($categories->count() < 0)
+                          @if($categories->count() < 0) <!-- Lets optimize this later -->
                             <p>Nothing to show</p>
                           @else
                             @foreach($categories as $category)
