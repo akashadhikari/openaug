@@ -1,4 +1,5 @@
-    <script type="text/javascript" src="{{URL::asset('js/jquery-2.2.3.min.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <!--  <script type="text/javascript" src="{{URL::asset('js/jquery-2.2.3.min.js')}}"></script> -->
     <script type="text/javascript" src="{{URL::asset('js/mdb.min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('js/tether.js')}}"></script>
     

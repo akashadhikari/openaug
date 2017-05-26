@@ -19,6 +19,13 @@ class ApiController extends Controller
 
     	return $posts->toJson();
     }
+
+    public function getCategories()
+    {
+        $categories = Category::all();
+
+        return $categories->toJson();
+    }
     public function getPostCategoryWise($category)
     {
     	// only take those posts matching passed category
