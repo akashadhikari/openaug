@@ -53,6 +53,7 @@ function markerLocation(){
     //Add lat and lng values to a field that we can save.
     document.getElementById('lat').value = currentLocation.lat(); //latitude
     document.getElementById('lng').value = currentLocation.lng(); //longitude
+    document.getElementById('alt').value = currentLocation.elevation(); // altitude
 }
         
         

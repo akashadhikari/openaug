@@ -67,13 +67,14 @@ class PostController extends Controller
 
         //store in the database
         $post = new Post;
-
+        
         $post->u_id = Auth::user()->id;
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->lat = $request->lat;
         $post->long = $request->lng;
         $post->category_id = $request->category_id;
+
         $post->body = Purifier::clean($request->body);
 
         //save the image -- optional field, thus IF CONDITION
