@@ -29,7 +29,7 @@
                     @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" type="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <i class="fa fa-smile-o" aria-hidden="true"></i> Hi Santosh Pandey</a>
+                            <i class="fa fa-smile-o" aria-hidden="true"></i> Hi {{Auth::user()->name}}</a>
                         <div class="dropdown-menu dropdown-default dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             <a class="dropdown-item waves-effect waves-light" href="{{ route('user.profile', ['userid' => Auth::user()->id] )}}">
                                 <i class="fa fa-user" aria-hidden="true"></i> Your profile

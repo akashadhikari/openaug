@@ -64,7 +64,7 @@ class ApiController extends Controller
         $array_post = $post->toArray();
 
         $data = array_merge($array_post,$array_weather);
-           return $data;
+        return $data;
         
     }
 }
