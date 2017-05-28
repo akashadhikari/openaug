@@ -4,6 +4,6 @@
 
 @section('content')
 
-	@include('user.userblock')
+		@include('user.userblock')
 	@include('augments.index')
 @endsection

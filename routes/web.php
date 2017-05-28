@@ -89,4 +89,12 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'ApiController@getPostCategoryWise'
 		]);	
 
+	Route::get('api/categories',[
+		'as' => 'pages.api',
+		'uses' =>'ApiController@getCategories'
+		]);
 
+	Route::get('api/weather/{id}',[
+		'as' => 'pages.api',
+		'uses' => 'ApiController@getPostDetails'
+		]);

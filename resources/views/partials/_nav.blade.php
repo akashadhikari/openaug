@@ -1,72 +1,74 @@
-<!-- Default bootstrap navbar-->
+ <!--Navbar-->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-dark scrolling-navbar double-nav">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{{ route('house') }}">
+                <strong>openAug</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item{{ Request::is('about') ? "active" : "" }}">
+                        <a class="nav-link waves-effect waves-light" href="{{route('house')}}/about"><i class="fa fa-info"></i> About</a>
+                    </li>
+                    <li class="nav-item {{ Request::is('contact') ? "active" : "" }}">
+                        <a class="nav-link waves-effect waves-light" href="{{route('house')}}/contact"><i class="fa fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
 
-  <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{route('house')}}">OpenAug</a>
-        </div>
+                <ul class="navbar-nav ml-auto">
+                    @if(!Auth::check())
+                        <li class="nav-item{{ Request::is('login') ? "active" : "" }}">
+                            <a class="nav-link waves-effect waves-light" href="{{route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i></i> Login</a>
+                        </li>
+                        <li class="nav-item{{ Request::is('register') ? "active" : "" }}">
+                            <a class="nav-link waves-effect waves-light" href="{{route('register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i></i> Register</a>
+                        </li>
+                    @endif
+                    @if(Auth::check())
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" type="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="fa fa-smile-o" aria-hidden="true"></i> Hi {{Auth::user()->name}}</a>
+                        <div class="dropdown-menu dropdown-default dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a class="dropdown-item waves-effect waves-light" href="{{ route('user.profile', ['userid' => Auth::user()->id] )}}">
+                                <i class="fa fa-user" aria-hidden="true"></i> Your profile
+                            </a>
+                            <a class="dropdown-item waves-effect waves-light" href="#">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> Log out
+                            </a>
+                        </div>
+                    </li>
+                    @endif
+                </ul>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            
-            <li class="{{ Request::is('about') ? "active" : "" }}"><a href="{{route('house')}}/about">About</a></li>
-            <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{route('house')}}/contact">Contact</a></li>
-            
-          </ul>
-          <form class="navbar-form navbar-left"  class="form-control" action="{{route('search.result')}}">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search Augments" id="auto" name="query">
+
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-
-            @if(Auth::check())
-
-            <li class="{{ Request::is('categories') ? "active" : "" }}"><a href="{{ route('categories.index') }}">Categories</a></li>
-<!-- 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Actions <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/augments">Augments</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li> -->
-            
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi {{ Auth::user()->name }} <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ route('user.profile', ['userid' => Auth::user()->id] )}}"><i class="fa fa-user" aria-hidden="true"></i> Your profile</a></li>
-              <!--   <li role="separator" class="divider"></li>
-                
-                <li><a href="{{ route('tags.index') }}">Tags</a></li> -->
-                <li role="separator" class="divider"></li>
-                <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
-              </ul>
-            </li>
-
-            @else
-
-            <li class="{{ Request::is('login') ? "active" : "" }}"><a href="{{route('login') }}">Login</a></li>
-             <li class="{{ Request::is('register') ? "active" : "" }}"><a href="{{route('register') }}">Register</a></li>
-
-            @endif
-
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        </div>
     </nav>
+    <!--/.Navbar-->
+
+@if(Request::is('/'))
+    <!--header-->
+    <div class="view hm-black-strong">
+        <div class="full-bg-img flex-center">
+           <div class="col-md-8 col-md-offset-2">
+                <h2 class="text-center">Search Places...</h2><hr>
+                <form action="{{route('search.result')}}" method="get">
+                   <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="search-query form-control" placeholder="Search" id="auto" name="query"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger btn-block" type="submit"/>
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--/header-->
+    <hr>
+@endif

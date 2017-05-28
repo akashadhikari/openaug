@@ -30,81 +30,99 @@
         </div>
      </div>
  -->
- <div class="jumbotron jumbotron-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-lg-12">
-                <h1 class="h1">
-                    Contact us <small>Feel free to contact us</small></h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
+
+
+<!--Section: Contact v.2-->
+<section class="section" style="margin-top: 65px;">
+
+    <!--Section heading-->
+    <h1 class="section-heading text-center">Contact us</h1>
+    <!--Section sescription-->
+    <p class="section-description mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam. Quia, minima?</p>
+
     <div class="row">
+
+        <!--First column-->
         <div class="col-md-8">
-            <div class="well well-sm">
-                <form>
+            <form>
+                <!--First row-->
                 <div class="row">
+                    <!--First column-->
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Subject</label>
-                            <select id="subject" name="subject" class="form-control" required="required">
-                                <option value="na" selected="">Choose One:</option>
-                                <option value="service">General Customer Service</option>
-                                <option value="suggestions">Suggestions</option>
-                                <option value="product">Product Support</option>
-                            </select>
+                        <div class="md-form">
+                            <div class="md-form">
+                                <input type="text" id="form41" class="form-control">
+                                <label for="form41" class="">Your name</label>
+                            </div>
                         </div>
                     </div>
+
+                    <!--Second column-->
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
+                        <div class="md-form">
+                            <div class="md-form">
+                                <input type="text" id="form52" class="form-control">
+                                <label for="form52" class="">Your email</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Message</button>
                     </div>
                 </div>
-                </form>
+                <!--/.First row-->
+
+                <!--Second row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <input type="text" id="form51" class="form-control">
+                            <label for="form51" class="">Subject</label>
+                        </div>
+                    </div>
+                </div>
+                <!--/Second row-->
+
+                <!--Third row-->
+                <div class="row">
+                    <!--First column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <textarea type="text" id="form76" class="md-textarea"></textarea>
+                            <label for="form76">Your message</label>
+                        </div>
+
+                    </div>
+                </div>
+                <!--/.Third row-->
+            </form>
+
+            <div class="center-on-small-only">
+               <button class="btn btn-default" type="button">Send</button>
             </div>
         </div>
+        <!--.First column-->
+
+        <!--Second column-->
         <div class="col-md-4">
-            <form>
-            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
-            <address>
-                <strong>openAug Inc.</strong><br>
-                Durbar Marg, Kathmandu<br>
-                <abbr title="Phone">
-                    P:</abbr>
-                (123) 456-7890
-            </address>
-            <address>
-                <strong>Full Name</strong><br>
-                <a href="mailto:#">contact@openaug.com</a>
-            </address>
-            </form>
+            <ul class="contact-icons">
+                <li><i class="fa fa-map-marker fa-2x"></i>
+                    <p>New York, NY 10012, USA</p>
+                </li>
+
+                <li><i class="fa fa-phone fa-2x"></i>
+                    <p>+ 01 234 567 89</p>
+                </li>
+
+                <li><i class="fa fa-envelope fa-2x"></i>
+                    <p>contact@openaug.com</p>
+                </li>
+            </ul>
         </div>
+        <!--.Second column-->
+
     </div>
-</div>
+</section>
+<!--/Section: Contact v.2-->
+
 
  
 
