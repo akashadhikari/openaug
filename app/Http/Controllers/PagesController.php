@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
+use DB;
 use Mail;
 use Session;
 use App\Category;
 class PagesController extends Controller {
 
-	public function getIndex() 
+	public function getIndex()
 	{
-		
+
 		$posts = Post::with('category')->orderBy('created_at', 'desc')->paginate(5);
 		$categories = Category::limit(8)->get();
 		return view('pages.welcome')->withPosts($posts)->with('categories',$categories);
@@ -67,4 +68,12 @@ class PagesController extends Controller {
 		$categories = Category::limit(8)->get();
 		return view('pages.distinct')->withPosts($posts)->with('categories',$categories);
 	}
+
+	public function getSentiment() {
+    $comments = DB::table('comments')->pluck('comment');
+    dd($comments);
+    //return view('sentiment');
+  }
+
+
 }

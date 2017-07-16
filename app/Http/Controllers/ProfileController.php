@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Post;
-use DB;
 use Auth;
 class ProfileController extends Controller
 {
@@ -26,9 +25,4 @@ class ProfileController extends Controller
  		return view('user.profile')->with('user',$user)->with('posts',$posts);
  	}
 
-  public function getSentiment() {
-    $comments = DB::table('comments')->pluck('comment');
-    dd($comments);
-    //return view('sentiment');
-  }
 }

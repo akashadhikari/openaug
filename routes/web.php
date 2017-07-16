@@ -41,7 +41,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/sentiment', [
 		'as' => 'sentiment',
-		'uses' => 'ProfileController@getSentiment'
+		'uses' => 'PagesController@getSentiment'
 	]);
 
 
