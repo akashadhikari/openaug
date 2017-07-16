@@ -54,7 +54,7 @@
 
 				<div class="row">
 				    <div class="col-md-12">
-				    	{{ Html::linkRoute('posts.index', '<< See all businesses', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
+				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 				</div>
 
