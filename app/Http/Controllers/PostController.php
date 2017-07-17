@@ -73,6 +73,7 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->lat = $request->lat;
         $post->long = $request->lng;
+        $post->alt = $request->alt;
         $post->category_id = $request->category_id;
 
         $post->body = Purifier::clean($request->body);
@@ -171,6 +172,7 @@ class PostController extends Controller
         $post->category_id = $request->input('category_id');
         $post->lat = $request->input('lat');
         $post->long = $request->input('lng');
+        $post->alt = $request->input('alt');
         $post->body  = Purifier::clean($request->input('body'));
 
         if($request->hasFile('featured_image')) {
