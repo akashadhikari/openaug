@@ -44,6 +44,11 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'PagesController@getSentiment'
 	]);
 
+	Route::get('/highcharts', [
+		'as' => 'highcharts',
+		'uses' => 'PagesController@getChart'
+	]);
+
 
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']]);

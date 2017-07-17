@@ -30,7 +30,7 @@
 					@if($post->category->name == 'Natural Spot')
                             <br><br><label>Current Weather:</label>
                             @else
-                            
+
                             @endif
 				</dl>
 
@@ -40,9 +40,12 @@
 				    <div class="col-md-12">
 				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
+						<div class="col-md-12">
+				    	{{ Html::linkRoute('highcharts', 'Sentiment Analysis', [], array('class' => 'btn btn-primary btn-block btn-h1-spacing')) }}
+				    </div>
 				</div>
 
-				
+
 
 		    </div>
 	    </div>
@@ -58,14 +61,14 @@
 			</p>
 			 <p class="lead">{!! $post->body !!}</p>
 
-			
+
 	     </div>
-		 
+
 	</div>
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			
+
 		</div>
 	</div>
 
@@ -79,10 +82,10 @@
 	<hr>
 	<div class="row">
 		<div class="comment-form" class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
-			
+
 			{{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) }}
 			<h3>Been Here? Add A Review</h3>
- 			
+
  				<div class="row">
 
  					<div class="col-md-6">
@@ -103,9 +106,9 @@
  					</div>
 
  				</div>
- 				
 
- 				
+
+
 
             {{ Form::close() }}
 
