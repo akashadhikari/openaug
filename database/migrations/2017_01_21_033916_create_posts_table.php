@@ -20,7 +20,6 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->double('lat', 20, 15);
             $table->double('long', 20, 15);
-            $table->double('alt',20,15);
             $table->timestamps();
         });
     }

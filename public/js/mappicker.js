@@ -10,8 +10,7 @@ function initMap() {
 
     //The center location of our map.
     var centerOfMap = new google.maps.LatLng(28.236175577221303,83.99477005004883);
-    var elevator = new google.maps.ElevationService;
-    
+
     //Map options.
     var options = {
       center: centerOfMap, //Set center.
@@ -34,7 +33,6 @@ function initMap() {
                 draggable: true //make it draggable
             });
             //Listen for drag events!
-
             google.maps.event.addListener(marker, 'dragend', function(event){
                 markerLocation();
             });
@@ -42,14 +40,9 @@ function initMap() {
             //Marker has already been added, so just change its location.
             marker.setPosition(clickedLocation);
         }
-
         //Get the marker's location.
         markerLocation();
-        getElevation(event.latLng, elevator);
     });
-
-      
-
 }
         
 //This function will get the marker's current location and then add the lat/long
@@ -60,18 +53,9 @@ function markerLocation(){
     //Add lat and lng values to a field that we can save.
     document.getElementById('lat').value = currentLocation.lat(); //latitude
     document.getElementById('lng').value = currentLocation.lng(); //longitude
-     // altitude
+    document.getElementById('alt').value = currentLocation.elevation(); // altitude
 }
- 
-function getElevation(location, elevator) {
-  // Initiate the location request
-  elevator.getElevationForLocations({
-    'locations': [location]
-  }, function(results, status) {
-    document.getElementById('alt').value = results[0].elevation;
-  });
-}
-
-       
+        
+        
 //Load the map when the page has finished loading.
 google.maps.event.addDomListener(window, 'load', initMap);

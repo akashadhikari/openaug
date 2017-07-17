@@ -69,10 +69,8 @@
  				<div class="form-group col-md-6">
  				<label>Longitude</label>		 
                    <input type="text" id="lng"  class="form-control" name="lng">
- 				
- 				<label>Altitude</label>		 
-                   <input type="text" id="alt"  class="form-control" name="alt">
  				</div>
+ 				<input type="hidden" id="alt" name="alt">
 
  				<div class="form-group col-md-12">
  					<label>Description</label>
