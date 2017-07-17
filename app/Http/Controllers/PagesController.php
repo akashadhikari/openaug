@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
-use MonkeyLearn\Client;
-require_once base_path('vendor/monkeylearn/monkeylearn-php/src/Client.php');
+use MonkeyLearn\Client as MonkeyLearn;
+//require_once base_path('vendor/monkeylearn/monkeylearn-php/src/Client.php');
 use DB;
 use Mail;
 use Session;
 use App\Category;
+
+
 class PagesController extends Controller {
-
-
 
 	public function getIndex()
 	{
@@ -74,12 +74,12 @@ class PagesController extends Controller {
 	}
 
 	public function getSentiment() {
-		//$ml = new MonkeyLearn\Client('289ec47e8ed51bb7d4232569551cda7b7343fa68');
-    $comments = DB::table('comments')->pluck('comment');
-		//$module_id = 'cl_rZ2P7hbs';
-		//$res = $ml->classifiers->classify($module_id, $comments, true);
-    dd($comments);
-    //return view('sentiment');
+	  $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
+    $comments = DB::table('comments')->pluck('comment')->toArray();
+	  $module_id = 'cl_rZ2P7hbs';
+	  $res = $ml->classifiers->classify($module_id, $comments, true);
+    dd($res);
+  //  return view('sentiment');
   }
 
 
