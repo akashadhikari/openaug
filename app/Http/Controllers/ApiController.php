@@ -5,7 +5,6 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\Comment;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller

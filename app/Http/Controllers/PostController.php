@@ -67,12 +67,12 @@ class PostController extends Controller
 
         //store in the database
         $post = new Post;
-        
         $post->u_id = Auth::user()->id;
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->lat = $request->lat;
         $post->long = $request->lng;
+        $post->alt = $request->alt;
         $post->category_id = $request->category_id;
 
         $post->body = Purifier::clean($request->body);
@@ -170,6 +170,7 @@ class PostController extends Controller
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
         $post->lat = $request->input('lat');
+        $post->alt = $request->input('alt');
         $post->long = $request->input('lng');
         $post->body  = Purifier::clean($request->input('body'));
 
