@@ -41,7 +41,7 @@
 				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 						<div class="col-md-12">
-				    	{{ Html::linkRoute('highcharts', 'Sentiment Analysis', [], array('class' => 'btn btn-primary btn-block btn-h1-spacing')) }}
+				    	{{ Html::linkRoute('posts.comments', 'Sentiment Analysis', [], array('class' => 'btn btn-primary btn-block btn-h1-spacing')) }}
 				    </div>
 				</div>
 
