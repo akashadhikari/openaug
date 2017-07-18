@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use MonkeyLearn\Client as MonkeyLearn;
-//require_once base_path('vendor/monkeylearn/monkeylearn-php/src/Client.php');
 use DB;
 use Mail;
 use Session;
