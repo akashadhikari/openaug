@@ -61,7 +61,7 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'PagesController@getPostCategoryWise'
 		]);
 
-	// show posts categorywise
+	// post comments sentiment
 	Route::get('/post/comments', [
 		'as' => 'posts.comments',
 		'uses' => 'PostController@getComments'

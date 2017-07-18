@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Comment;
 use App\Tag;
 use App\Category;
 use Session;
@@ -222,9 +223,11 @@ class PostController extends Controller
     }
 
     public function getComments() {
+
+        $comments = Comment::all();
       //$comment = Comment::where('post_id' , '1');
   		//return the view and pass it in the post object
-  		return view('posts.comments'); //->withComment($comment);
+  		return view('posts.comments')->withComments($comments); //->withComment($comment);
     }
 
 }

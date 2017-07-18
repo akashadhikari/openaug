@@ -30,9 +30,26 @@
     </div>
 
     <div class="col-sm-6 col-md-6">
-        <div class= "well">
-          Comments
-        </div>
+
+    @foreach($comments as $comment)
+        <table class="table table-hover">
+
+                    <thead>
+                        <th>Comment</th>
+                        <th>Bias</th>
+                    </thead>
+
+                    <tbody>
+                            <tr>
+                                <td>{{$comment->comment}}</td>
+                                <td>0.75</td>
+                            </tr>
+                    </tbody>
+        </table>
+                
+    @endforeach    
+
+                
     </div>
 
   </div>
