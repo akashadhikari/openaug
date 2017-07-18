@@ -76,10 +76,14 @@ class PagesController extends Controller {
 	public function getSentiment() {
 	  $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
     $comments = DB::table('comments')->pluck('comment')->toArray();
-	  $module_id = 'cl_rZ2P7hbs';
+	  $module_id = 'cl_qkjxv9Ly';
 	  $res = $ml->classifiers->classify($module_id, $comments, true);
     dd($res);
   //  return view('sentiment');
+  }
+
+	public function getChart() {
+	  return view('highcharts');
   }
 
 

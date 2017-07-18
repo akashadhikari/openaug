@@ -46,6 +46,11 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'PostController@getComments'
 	]);
 
+	Route::get('/highcharts', [
+		'as' => 'highcharts',
+		'uses' => 'PagesController@getChart'
+	]);
+
 
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
@@ -69,7 +74,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
 
 
-	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
+	Route::get('augments/{slug}', [
+		'as' => 'augments.single',
+		'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
+
+	Route::get('posts/comments', [
+		'as' => 'posts.comments',
+		'uses' => 'PostController@getComments']);
+
 	// Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.index']);
 	Route::get('contact', 'PagesController@getContact');
 	Route::post('contact', 'PagesController@postContact');
