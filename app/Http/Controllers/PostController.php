@@ -67,7 +67,7 @@ class PostController extends Controller
 
         //store in the database
         $post = new Post;
-        
+
         $post->u_id = Auth::user()->id;
         $post->title = $request->title;
         $post->slug = $request->slug;
@@ -88,7 +88,7 @@ class PostController extends Controller
 
             $post->image = $filename;
         }
-   
+
        $post->save();
 
         Session::flash('success', 'Congratulations! Your augment is successfully saved.');
@@ -106,7 +106,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show')->withPost($post);    
+        return view('posts.show')->withPost($post);
     }
 
     /**
@@ -138,7 +138,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         //validate the data
         $post= Post::find($id);
 
@@ -189,7 +189,7 @@ class PostController extends Controller
 
             //delete the old photo
             Storage::delete($oldFilename);
-            
+
         }
 
         $post->save();
@@ -211,7 +211,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post= Post::find($id);
-        
+
         Storage::delete($post->image);
 
         $post->delete();
@@ -220,4 +220,11 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
     }
+
+    public function getComments() {
+      //$comment = Comment::where('post_id' , '1');
+  		//return the view and pass it in the post object
+  		return view('posts.comments'); //->withComment($comment);
+    }
+
 }

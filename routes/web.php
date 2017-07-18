@@ -20,12 +20,12 @@ Route::get('/', function () {
 */
 Route::group(['middleware' => ['web']], function () {
 
-	// Authentication routes 
-	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']); 
-	Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']); 
-	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']); 
+	// Authentication routes
+	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+	Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
+	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-	//Registration routes 
+	//Registration routes
 	Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
 	Route::post('register', ['as' => 'register.post', 'uses' => 'Auth\RegisterController@register']);
 
@@ -35,9 +35,19 @@ Route::group(['middleware' => ['web']], function () {
 
 	// user profile
 	Route::get('/user/profile/{userid}', [
-		'as' => 'user.profile', 
+		'as' => 'user.profile',
 		'uses' => 'ProfileController@getProfile'
 		]);
+
+	Route::get('/sentiment', [
+		'as' => 'sentiment',
+		'uses' => 'PagesController@getSentiment'
+	]);
+
+	Route::get('/highcharts', [
+		'as' => 'highcharts',
+		'uses' => 'PagesController@getChart'
+	]);
 
 
 	//categories
@@ -45,7 +55,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	// show posts categorywise
 	Route::get('/post/category/{cat}', [
-		'as' => 'pages.distinct', 
+		'as' => 'pages.distinct',
 		'uses' => 'PagesController@getPostCategoryWise'
 		]);
 
@@ -56,7 +66,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
 
 
-	Route::get('augments/{slug}', ['as' => 'augments.single', 'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
+	Route::get('augments/{slug}', [
+		'as' => 'augments.single',
+		'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
+
+	Route::get('posts/comments', [
+		'as' => 'posts.comments',
+		'uses' => 'PostController@getComments']);
+
 	// Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.index']);
 	Route::get('contact', 'PagesController@getContact');
 	Route::post('contact', 'PagesController@postContact');
@@ -64,7 +81,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
     });
-	
+
 	Route::get('/search',[
 		'as' => 'search.result',
 		'uses' => 'SearchController@getResult'
@@ -83,11 +100,11 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'ApiController@getAllPosts'
 		]);
 
-	// for categorywise posts 
+	// for categorywise posts
 	Route::get('api/post/{category}',[
 		'as' => 'pages.api',
 		'uses' => 'ApiController@getPostCategoryWise'
-		]);	
+		]);
 
 	Route::get('api/categories',[
 		'as' => 'pages.api',

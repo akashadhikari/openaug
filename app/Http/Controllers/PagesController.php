@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
+use MonkeyLearn\Client as MonkeyLearn;
+//require_once base_path('vendor/monkeylearn/monkeylearn-php/src/Client.php');
+use DB;
 use Mail;
 use Session;
 use App\Category;
+
+
 class PagesController extends Controller {
 
-	public function getIndex() 
+	public function getIndex()
 	{
-		
+
 		$posts = Post::with('category')->orderBy('created_at', 'desc')->paginate(5);
 		$categories = Category::limit(8)->get();
 		return view('pages.welcome')->withPosts($posts)->with('categories',$categories);
@@ -67,4 +72,19 @@ class PagesController extends Controller {
 		$categories = Category::limit(8)->get();
 		return view('pages.distinct')->withPosts($posts)->with('categories',$categories);
 	}
+
+	public function getSentiment() {
+	  $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
+    $comments = DB::table('comments')->pluck('comment')->toArray();
+	  $module_id = 'cl_qkjxv9Ly';
+	  $res = $ml->classifiers->classify($module_id, $comments, true);
+    dd($res);
+  //  return view('sentiment');
+  }
+
+	public function getChart() {
+	  return view('highcharts');
+  }
+
+
 }

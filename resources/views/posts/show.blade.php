@@ -36,12 +36,12 @@
 					<label>Updated at:</label>
 					<p>{{ date('M j, Y', strtotime($post->updated_at)) }}</p>
 				</dl>
-				
+
 				<hr>
 				<div class="row">
 					<div class="col-sm-6">
 						{{ Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class' => 'btn btn-primary btn-block')) }}
-					</div> 
+					</div>
 
 					<div class="col-sm-6">
 						{!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
@@ -54,13 +54,13 @@
 
 				<div class="row">
 				    <div class="col-md-12">
-				    	{{ Html::linkRoute('posts.index', '<< See all businesses', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
+				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 				</div>
 
 		    </div>
 	    </div>
-		
+
 	     <div class="col-md-8">
 
 	    	 <h1> {{ $post->title }} </h1>
@@ -72,13 +72,13 @@
 			</p>
 			 <p class="lead">{!! $post->body !!}</p>
 
-			
-	     </div> 
 
-	    
+	     </div>
+
+
 	</div>
 
-	
+
 
 @endsection
 @section('scripts')

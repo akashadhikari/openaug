@@ -11,7 +11,7 @@ class ProfileController extends Controller
  	public function getProfile($userid)
  	{
  		$user = User::where('id',$userid)->first();
- 		if (!$user) 
+ 		if (!$user)
  		{
  			abort(404);
  		}
@@ -23,5 +23,6 @@ class ProfileController extends Controller
 			->paginate(10);
 
  		return view('user.profile')->with('user',$user)->with('posts',$posts);
- 	}   
+ 	}
+
 }
