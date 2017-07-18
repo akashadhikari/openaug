@@ -48,13 +48,6 @@ class PostController extends Controller
         return view('posts.create')->withCategories($categories);
     }
 
-    //post/comments
-
-    public function getComments()
-    {
-        return view('posts.comments');
-    }
-
     /**
      * Store a newly created resource in storage.
      *
