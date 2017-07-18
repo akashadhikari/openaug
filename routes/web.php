@@ -39,9 +39,11 @@ Route::group(['middleware' => ['web']], function () {
 		'uses' => 'ProfileController@getProfile'
 		]);
 
+	//sentiment
+
 	Route::get('/sentiment', [
-		'as' => 'sentiment',
-		'uses' => 'PagesController@getSentiment'
+		'as' => 'posts.comments',
+		'uses' => 'PostController@getComments'
 	]);
 
 
@@ -52,6 +54,12 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/post/category/{cat}', [
 		'as' => 'pages.distinct',
 		'uses' => 'PagesController@getPostCategoryWise'
+		]);
+
+	// show posts categorywise
+	Route::get('/post/comments', [
+		'as' => 'posts.comments',
+		'uses' => 'PostController@getComments'
 		]);
 
 	//Tags
