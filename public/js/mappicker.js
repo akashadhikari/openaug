@@ -10,6 +10,7 @@ function initMap() {
 
     //The center location of our map.
     var centerOfMap = new google.maps.LatLng(28.236175577221303,83.99477005004883);
+   
 
     //Map options.
     var options = {
@@ -19,9 +20,10 @@ function initMap() {
 
     //Create the map object.
     map = new google.maps.Map(document.getElementById('map'), options);
-
+     var elevator = new google.maps.ElevationService;
     //Listen for any clicks on the map.
-    google.maps.event.addListener(map, 'click', function(event) {                
+    google.maps.event.addListener(map, 'click', function(event) { 
+                     
         //Get the location that the user clicked.
         var clickedLocation = event.latLng;
         //If the marker hasn't been added.
@@ -35,6 +37,7 @@ function initMap() {
             //Listen for drag events!
             google.maps.event.addListener(marker, 'dragend', function(event){
                 markerLocation();
+
             });
         } else{
             //Marker has already been added, so just change its location.
@@ -42,6 +45,7 @@ function initMap() {
         }
         //Get the marker's location.
         markerLocation();
+        getElevation(event.latLng, elevator);
     });
 }
         
@@ -53,9 +57,18 @@ function markerLocation(){
     //Add lat and lng values to a field that we can save.
     document.getElementById('lat').value = currentLocation.lat(); //latitude
     document.getElementById('lng').value = currentLocation.lng(); //longitude
-    document.getElementById('alt').value = currentLocation.elevation(); // altitude
+    
 }
-        
+ 
+ function getElevation(location, elevator) {
+        // Initiate the location request
+        elevator.getElevationForLocations({
+          'locations': [location]
+        }, function(results, status) {
+          document.getElementById('alt').value = results[0].elevation;//alt
+        });
+      }
+
         
 //Load the map when the page has finished loading.
 google.maps.event.addDomListener(window, 'load', initMap);
