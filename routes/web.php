@@ -43,14 +43,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/sentiment', [
 		'as' => 'posts.comments',
-		'uses' => 'PostController@getComments'
+		'uses' => 'PagesController@getSentiment'
 	]);
-
-	Route::get('/highcharts', [
-		'as' => 'highcharts',
-		'uses' => 'PagesController@getChart'
-	]);
-
 
 	//categories
 	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
