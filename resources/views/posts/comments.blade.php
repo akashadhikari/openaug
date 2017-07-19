@@ -26,12 +26,16 @@
 
   <div class="row">
     <div class="col-sm-6 col-md-6">
-      <div id="container1"></div>
+    
+    <div id="container1"></div>
+    
+      
     </div>
 
     <div class="col-sm-6 col-md-6">
 
     @foreach($comments as $comment)
+
         <table class="table table-hover">
 
                     <thead>
@@ -47,13 +51,13 @@
                     </tbody>
         </table>
                 
-    @endforeach    
-
+    @endforeach
                 
     </div>
 
   </div>
 </div>
+
 
 <script type="text/javascript">
 
@@ -69,7 +73,7 @@
             }
         },
         title: {
-            text: 'What users say about the place?'
+            text: 'What users say about the spot?'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -102,6 +106,7 @@
     });
 
 </script>
+
 
 </body>
 </html>

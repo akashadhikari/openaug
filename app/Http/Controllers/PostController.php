@@ -217,17 +217,18 @@ class PostController extends Controller
 
         $post->delete();
 
-        Session::flash('success', 'Business was successfully deleted.');
+        Session::flash('success', 'Augment was successfully deleted.');
 
         return redirect()->route('posts.index');
     }
 
     public function getComments() {
 
-        $comments = Comment::all();
+        $comments = Comment::where('post_id', 2)->get();
+        $posts = Post::all();
       //$comment = Comment::where('post_id' , '1');
   		//return the view and pass it in the post object
-  		return view('posts.comments')->withComments($comments); //->withComment($comment);
+  		return view('posts.comments')->withComments($comments)->withPosts($posts); //->withComment($comment);
     }
 
 }
