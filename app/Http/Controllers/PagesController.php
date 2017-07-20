@@ -81,14 +81,58 @@ class PagesController extends Controller {
 		//$res is an array that returns
 		$res = $ml->classifiers->classify($module_id, $comments, true);
 
-		//foreach($comments as $index => $comment) {}			
-			//return all the labels
+		//count the total number of comments in the array
 		$x= count($comments);
 		
 		// $x-1 because i have "chor buddhi"
+		//print all the labels (positive, negative or neutral) of the comments
 		for($i=0; $i<=$x-1; $i++) {
 			print($res->result[$i][0]['label']);print"\n";
+
 		}
+
+		//count total number of positive reviews
+		$countPositive = 0;
+		for($i=0; $i<=$x-1; $i++) {
+			
+			if($res->result[$i][0]['label']=='positive') {
+				$countPositive = $countPositive + 1;
+			}
+		} print($countPositive);print"\n";
+
+		//count total number of negative reviews
+		$countNegative = 0;
+		for($i=0; $i<=$x-1; $i++) {
+			
+			if($res->result[$i][0]['label']=='negative') {
+				$countNegative = $countNegative + 1;
+			}
+		} print($countNegative);print"\n";
+
+		//count total number of neutral reviews
+		$countNeutral = 0;
+		for($i=0; $i<=$x-1; $i++) {
+			
+			if($res->result[$i][0]['label']=='neutral') {
+				$countNeutral = $countNeutral + 1;
+			}
+		} print($countNeutral);print"\n";
+		
+
+
+		// for($j=0; $j<=$x-1; $j++) {
+
+		// 	if($res->result[$j][0]['label']=='positive') {
+		// 		print("fonsi");
+		// 	} else if ($res->result[$j][0]['label']=='negative') {
+		// 		print("ohhh");
+		// 	} else {
+		// 		print("noooo");
+		// 	}
+		// }
+
+		
+
 		// $one = $res->result[0][0]['label'];
 		// $two = $res->result[1][0]['label'];
 		// print($one);
