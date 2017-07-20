@@ -226,7 +226,7 @@ class PostController extends Controller
 
         $comments = Comment::where('post_id', 2)->get();
         $posts = Post::all();
-      //$comment = Comment::where('post_id' , '1');
+        //$comment = Comment::where('post_id' , '1');
   		//return the view and pass it in the post object
   		return view('posts.comments')->withComments($comments)->withPosts($posts); //->withComment($comment);
     }
