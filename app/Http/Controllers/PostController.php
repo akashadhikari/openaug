@@ -224,7 +224,8 @@ class PostController extends Controller
 
     public function getComments() {
 
-        $comments = Comment::where('post_id', 2)->get();
+        // $comments = Comment::where('post_id', 2)->get();
+        $comments = Comment::all();
         $posts = Post::all();
         //$comment = Comment::where('post_id' , '1');
   		//return the view and pass it in the post object

@@ -74,14 +74,6 @@ class PagesController extends Controller {
 
 	public function getSentiment() {
 
-		// declaring happy, sad and neutral emojis for assigning them to the comments accordingly
-		// im basically messing around here
-
-		$happy = 'Happy comment'; //['U+1F600;',];
-
-		$sad = 'Sad comment'; //['U+1F914;',];
-
-		$neutral = 'Neutral comment'; //['U+2639;',];
 
 		$ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
 		$comments = DB::table('comments')->pluck('comment')->toArray();
@@ -90,26 +82,36 @@ class PagesController extends Controller {
 		$res = $ml->classifiers->classify($module_id, $comments, true);
 
 		foreach($comments as $index => $comment) {
-
-			switch(strtolower($res->result[$index][0]['label'])) {
-
-				case 'positive':
-				$emojiset = $happy;
-				break;
-
-				case 'neutral':
-				$emojiset = $neutral;
-				break;
-
-				case 'negative':
-				$emojiset = $sad;
-				break;
-
-			}
-
-			dd($emojiset);
-
+			
+			//return all the labels
+			
+		
+			dd($res->result[0][0]['label'], $res->result[1][0]['label'], $res->result[2][0]['label'], $res->result[3][0]['label']);
+			
+			
 		}
+
+		// foreach($comments as $index => $comment) {
+
+		// 	switch(strtolower($res->result[$index][0]['label'])) {
+
+		// 		case 'positive':
+		// 		$emojiset = $happy;
+		// 		break;
+
+		// 		case 'neutral':
+		// 		$emojiset = $neutral;
+		// 		break;
+
+		// 		case 'negative':
+		// 		$emojiset = $sad;
+		// 		break;
+
+		// 	}
+
+		// dd($emojiset);
+
+		// }
   }
 
 }

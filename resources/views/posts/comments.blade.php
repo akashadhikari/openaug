@@ -25,14 +25,14 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-sm-6 col-md-6">
+    <div class="col align-self-center">
     
-    <div id="container1"></div>
-    
-      
+        <div id="container1"></div>
     </div>
 
-    <div class="col-sm-6 col-md-6">
+  </div>
+
+  <div class="col align-self-center">
 
     @foreach($comments as $comment)
 
@@ -54,14 +54,12 @@
     @endforeach
 
 
-    @foreach($posts as $post)
+    <!-- @foreach($posts as $post)
     {{$post->title}}
-    @endforeach
+    @endforeach -->
 
 
     </div>
-
-  </div>
 </div>
 
 
