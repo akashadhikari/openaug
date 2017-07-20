@@ -81,15 +81,20 @@ class PagesController extends Controller {
 		//$res is an array that returns
 		$res = $ml->classifiers->classify($module_id, $comments, true);
 
-		foreach($comments as $index => $comment) {
-			
+		//foreach($comments as $index => $comment) {}			
 			//return all the labels
-			
+		$x= count($comments);
 		
-			dd($res->result[0][0]['label'], $res->result[1][0]['label'], $res->result[2][0]['label'], $res->result[3][0]['label']);
-			
-			
+		// $x-1 because i have "chor buddhi"
+		for($i=0; $i<=$x-1; $i++) {
+			print($res->result[$i][0]['label']);print"\n";
 		}
+		// $one = $res->result[0][0]['label'];
+		// $two = $res->result[1][0]['label'];
+		// print($one);
+		// print($two);
+			//dd($res->result[0][0]['label'], $res->result[1][0]['label'], $res->result[2][0]['label'], $res->result[3][0]['label']);
+		
 
 		// foreach($comments as $index => $comment) {
 
