@@ -101,6 +101,7 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
                     <tbody>
                             <tr>
                                 <td>{{$comment->comment}}</td>
+
                                 <td>{{$res->result[1][0]['label']}}</td>
                             </tr>
                     </tbody>
@@ -152,11 +153,11 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
             type: 'pie',
             name: 'Sentiment Analysis',
             data: [
-                ['Positive', 75.0],
-                ['Negative', 20.0],
+                ['Positive', {{$countPositive}}],
+                ['Negative', {{$countNegative}}],
                 {
                     name: 'Neutral',
-                    y: 5.0,
+                    y: 0.0,
                     sliced: true,
                     selected: true
                 }
