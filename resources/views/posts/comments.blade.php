@@ -22,6 +22,61 @@
 </head>
 <body>
 
+<!-- START -->
+
+<?php
+
+use MonkeyLearn\Client as MonkeyLearn;
+
+$ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
+        $arr = DB::table('comments')->pluck('comment')->toArray();
+        $module_id = 'cl_qkjxv9Ly'; // this is tweet module id
+        //$res is an array that returns
+        $res = $ml->classifiers->classify($module_id, $arr, true);
+
+        //count the total number of comments in the array
+        $x= count($arr);
+        
+        // $x-1 because i have "chor buddhi"
+        //print all the labels (positive, negative or neutral) of the comments
+        for($i=0; $i<=$x-1; $i++) {
+            print($res->result[$i][0]['label']);print"\n";
+
+        }
+
+        //count total number of positive reviews
+        $countPositive = 0;
+        for($i=0; $i<=$x-1; $i++) {
+            
+            if($res->result[$i][0]['label']=='positive') {
+                $countPositive = $countPositive + 1;
+            }
+        } print($countPositive);print"\n";
+
+        //count total number of negative reviews
+        $countNegative = 0;
+        for($i=0; $i<=$x-1; $i++) {
+            
+            if($res->result[$i][0]['label']=='negative') {
+                $countNegative = $countNegative + 1;
+            }
+        } print($countNegative);print"\n";
+
+        //count total number of neutral reviews
+        $countNeutral = 0;
+        for($i=0; $i<=$x-1; $i++) {
+            
+            if($res->result[$i][0]['label']=='neutral') {
+                $countNeutral = $countNeutral + 1;
+            }
+        } print($countNeutral);print"\n";
+
+
+        ?>
+
+
+<!-- END -->
+
 <div class="container">
 
   <div class="row">
@@ -46,7 +101,7 @@
                     <tbody>
                             <tr>
                                 <td>{{$comment->comment}}</td>
-                                <td>0.75</td>
+                                <td>{{$res->result[1][0]['label']}}</td>
                             </tr>
                     </tbody>
         </table>

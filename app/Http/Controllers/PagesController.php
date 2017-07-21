@@ -75,6 +75,7 @@ class PagesController extends Controller {
 	public function getSentiment() {
 
 
+
 		$ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
 		$comments = DB::table('comments')->pluck('comment')->toArray();
 		$module_id = 'cl_qkjxv9Ly'; // this is tweet module id
@@ -130,7 +131,6 @@ class PagesController extends Controller {
 		// 		print("noooo");
 		// 	}
 		// }
-
 		
 
 		// $one = $res->result[0][0]['label'];
