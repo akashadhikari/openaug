@@ -43,10 +43,10 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
         // $x-1 because i have "chor buddhi"
         //print all the labels (positive, negative or neutral) of the comments
 
-        for($i=0; $i<=$x-1; $i++) {
-            print($res->result[$i][0]['label']);print"\n";
+        // for($i=0; $i<=$x-1; $i++) {
+        //     print($res->result[$i][0]['label']);print"\n";
 
-        }
+        // }
 
         //count total number of positive reviews
         $countPositive = 0;
@@ -55,7 +55,9 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
             if($res->result[$i][0]['label']=='positive') {
                 $countPositive = $countPositive + 1;
             }
-        } print($countPositive);print"\n";
+        }
+        print("Total Positive:");
+        print($countPositive);print"\n";
 
         //count total number of negative reviews
         $countNegative = 0;
@@ -64,7 +66,9 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
             if($res->result[$i][0]['label']=='negative') {
                 $countNegative = $countNegative + 1;
             }
-        } print($countNegative);print"\n";
+        }
+        print("<br>Total Negative:"); 
+        print($countNegative);print"\n";
 
         //count total number of neutral reviews
         $countNeutral = 0;
@@ -73,7 +77,9 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
             if($res->result[$i][0]['label']=='neutral') {
                 $countNeutral = $countNeutral + 1;
             }
-        } print($countNeutral);print"\n";
+        }
+        print("<br>Total Neutral:"); 
+        print($countNeutral);print"\n";
 
 
         ?>
