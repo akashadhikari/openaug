@@ -29,7 +29,10 @@
 use MonkeyLearn\Client as MonkeyLearn;
 
 $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
+        
+        // from table 'comments' only pluch 'comment' field and convert it to an array
         $arr = DB::table('comments')->pluck('comment')->toArray();
+        
         $module_id = 'cl_qkjxv9Ly'; // this is tweet module id
         //$res is an array that returns
         $res = $ml->classifiers->classify($module_id, $arr, true);
@@ -39,6 +42,7 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
         
         // $x-1 because i have "chor buddhi"
         //print all the labels (positive, negative or neutral) of the comments
+
         for($i=0; $i<=$x-1; $i++) {
             print($res->result[$i][0]['label']);print"\n";
 
@@ -95,14 +99,13 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
 
                     <thead>
                         <th>Comment</th>
-                        <th>Bias</th>
+                        
                     </thead>
 
                     <tbody>
                             <tr>
                                 <td>{{$comment->comment}}</td>
 
-                                <td>{{$res->result[1][0]['label']}}</td>
                             </tr>
                     </tbody>
         </table>
@@ -157,7 +160,7 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
                 ['Negative', {{$countNegative}}],
                 {
                     name: 'Neutral',
-                    y: 0.0,
+                    y: {{$countNeutral}},
                     sliced: true,
                     selected: true
                 }
