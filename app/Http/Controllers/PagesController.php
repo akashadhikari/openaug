@@ -81,7 +81,7 @@ class PagesController extends Controller {
 		$module_id = 'cl_qkjxv9Ly'; // this is tweet module id
 		//$res is an array that returns
 		$res = $ml->classifiers->classify($module_id, $comments, true);
-
+		dd($res);
 		//count the total number of comments in the array
 		$x= count($comments);
 		

@@ -28,9 +28,9 @@
 
 use MonkeyLearn\Client as MonkeyLearn;
 
-$ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
+        $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
         
-        // from table 'comments' only pluch 'comment' field and convert it to an array
+        // from table 'comments' only pluck 'comment' field and convert it to an array
         $arr = DB::table('comments')->pluck('comment')->toArray();
         
         $module_id = 'cl_qkjxv9Ly'; // this is tweet module id
@@ -82,7 +82,8 @@ $ml = new MonkeyLearn('289ec47e8ed51bb7d4232569551cda7b7343fa68');
         print($countNeutral);print"\n";
 
 
-        ?>
+        
+?>
 
 
 <!-- END -->
