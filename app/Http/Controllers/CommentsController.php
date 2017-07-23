@@ -15,9 +15,9 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($post_id)
     {
-        
+        return 'Comment of post number ' . $post_id;
     }
 
     /**

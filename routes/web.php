@@ -65,16 +65,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 	//Comments
-	Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
 
 
 	Route::get('augments/{slug}', [
 		'as' => 'augments.single',
 		'uses' => 'AugmentsController@getSingle'])->where('slug', '[\w\d\-\_]+');
 
-	Route::get('posts/comments', [
-		'as' => 'posts.comments',
-		'uses' => 'PostController@getComments']);
+	// Route::get('posts/comments', [
+	// 	'as' => 'posts.comments',
+	// 	'uses' => 'PostController@getComments']);
 
 	// Route::get('augments', ['uses' => 'AugmentsController@getIndex', 'as' => 'augments.index']);
 	Route::get('contact', 'PagesController@getContact');
@@ -82,6 +81,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('about', 'PagesController@getAbout');
 	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
+	Route::resource('posts.comments', 'CommentsController');
     });
 
 	Route::get('/search',[
