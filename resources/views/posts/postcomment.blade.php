@@ -38,7 +38,8 @@ use MonkeyLearn\Client as MonkeyLearn;
         $res = $ml->classifiers->classify($module_id, $arr, true);
 
         //count the total number of comments in the array
-        $x= count($arr);
+        $x= count($comments);
+        print $x;
         
         // $x-1 because i have "chor buddhi"
         //print all the labels (positive, negative or neutral) of the comments
