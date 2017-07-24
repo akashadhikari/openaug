@@ -17,7 +17,13 @@ class CommentsController extends Controller
      */
     public function index($post_id)
     {
-        return 'Comment of post number ' . $post_id;
+        $comments = Comment::all();
+        $posts = Post::all();
+        //$comment = Comment::where('post_id' , '1');
+        //return the view and pass it in the post object
+        return view('posts.postcomment')->withComments($comments)->withPosts($posts); //->withComment($comment);
+
+        // return 'Comment of post number ' . $post_id;
     }
 
     /**
