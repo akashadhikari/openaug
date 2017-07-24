@@ -144,7 +144,7 @@ use MonkeyLearn\Client as MonkeyLearn;
             }
         },
         title: {
-            text: 'What users say about the spot?'
+            text: 'What users say about {{$post->title}}'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
