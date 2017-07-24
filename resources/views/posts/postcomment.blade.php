@@ -39,7 +39,7 @@ use MonkeyLearn\Client as MonkeyLearn;
 
         //count the total number of comments in the array
         $x= count($comments);
-        print $x;
+        print(" total comments in this post= ");print $x;print"\n";
         
         // $x-1 because i have "chor buddhi"
         //print all the labels (positive, negative or neutral) of the comments
