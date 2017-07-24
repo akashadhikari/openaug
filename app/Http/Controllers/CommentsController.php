@@ -17,7 +17,7 @@ class CommentsController extends Controller
      */
     public function index($post_id)
     {
-        $comments = Comment::all();
+        $comments = Comment::where('post_id', $post_id)->get();
         $posts = Post::all();
         //$comment = Comment::where('post_id' , '1');
         //return the view and pass it in the post object
