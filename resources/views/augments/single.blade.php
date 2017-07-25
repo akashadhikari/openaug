@@ -41,6 +41,8 @@
 				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
 
+				   <!--  This is used to show the sentiment based on posts -->
+
 				    <div class="col-md-12">
 				    	<a href="/posts/{{$post->id}}/comments" class="btn btn-primary btn-block btn-h1-spacing" role="button">Sentiment</a>
 				    </div>
