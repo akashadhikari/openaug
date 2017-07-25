@@ -38,8 +38,8 @@ use MonkeyLearn\Client as MonkeyLearn;
         $res = $ml->classifiers->classify($module_id, $arr, true);
 
         //count the total number of comments in the array
-        $x= count($comments);
-        print(" total comments in this post= ");print $x;print"\n";
+        $x= count($comments); //total comments in this post
+        
         
         // $x-1 because i have "chor buddhi"
         //print all the labels (positive, negative or neutral) of the comments
@@ -144,7 +144,7 @@ use MonkeyLearn\Client as MonkeyLearn;
             }
         },
         title: {
-            text: 'What users say about {{$post->title}}'
+            text: 'What users say about the {{$post->title}}'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

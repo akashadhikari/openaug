@@ -40,10 +40,11 @@
 				    <div class="col-md-12">
 				    	{{ Html::linkRoute('posts.index', '<< See all augments', [], array('class' => 'btn btn-default btn-block btn-h1-spacing')) }}
 				    </div>
-            
-						<div class="col-md-12">
-				    	{{ Html::linkRoute('posts.comments', 'Sentiment Analysis', [], array('class' => 'btn btn-primary btn-block btn-h1-spacing')) }}
+
+				    <div class="col-md-12">
+				    	<a href="/posts/{{$post->id}}/comments" class="btn btn-primary btn-block btn-h1-spacing" role="button">Sentiment</a>
 				    </div>
+
 				</div>
 
 

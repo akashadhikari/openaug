@@ -83,6 +83,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
 	Route::resource('posts.comments', 'CommentsController');
+
     });
 
 	Route::get('/search',[
