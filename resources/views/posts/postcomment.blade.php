@@ -113,7 +113,6 @@ use MonkeyLearn\Client as MonkeyLearn;
                     <tbody>
                             <tr>
                                 <td>{{$comment->comment}}</td>
-
                             </tr>
                     </tbody>
         </table>
@@ -144,7 +143,7 @@ use MonkeyLearn\Client as MonkeyLearn;
             }
         },
         title: {
-            text: 'What users say about the {{$post->title}}'
+            text: 'What users say about the spot'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

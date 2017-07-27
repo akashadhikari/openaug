@@ -82,7 +82,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('about', 'PagesController@getAbout');
 	Route::get('/', ['as' => 'house', 'uses' => 'PagesController@getIndex']);
 	Route::resource('posts', 'PostController');
-	Route::resource('posts.comments', 'CommentsController');
+	Route::resource('posts.comments', 'CommentsController'); //RESTfully defining posts to comments
 
     });
 
