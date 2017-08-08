@@ -34,7 +34,7 @@
                             <a class="dropdown-item waves-effect waves-light" href="{{ route('user.profile', ['userid' => Auth::user()->id] )}}">
                                 <i class="fa fa-user" aria-hidden="true"></i> Your profile
                             </a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">
+                            <a class="dropdown-item waves-effect waves-light" href="{{route('logout') }}">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i> Log out
                             </a>
                         </div>
